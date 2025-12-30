@@ -14,12 +14,11 @@ export function Footer() {
                 <div className="grid md:grid-cols-4 gap-8 mb-12">
                     <div className="space-y-6">
                         <Link href="/" className="flex items-center gap-4 group">
-                            <div className="relative w-10 h-10 overflow-hidden rounded-2xl bg-white/10 p-2 group-hover:scale-105 transition-all duration-300 shadow-sm border border-white/5">
-                                <Image
+                            <div className="relative w-11 h-11 flex items-center justify-center rounded-2xl bg-white/10 group-hover:scale-105 transition-all duration-300 shadow-sm border border-white/5">
+                                <img
                                     src="/logo.png"
                                     alt="Mobri Logo"
-                                    fill
-                                    className="object-contain p-1"
+                                    className="w-7 h-7 object-contain"
                                 />
                             </div>
                             <div className="text-2xl font-heading font-bold text-white tracking-tight">

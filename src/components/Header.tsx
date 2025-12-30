@@ -38,13 +38,11 @@ export function Header() {
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-4 group">
-                    <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-2xl bg-[#F5F2EA] p-2 group-hover:scale-105 transition-all duration-300 shadow-sm border border-black/5">
-                        <Image
+                    <div className="relative w-11 h-11 flex items-center justify-center rounded-2xl bg-[#F5F2EA] group-hover:scale-105 transition-all duration-300 shadow-sm border border-black/5">
+                        <img
                             src="/logo.png"
                             alt="Mobri Logo"
-                            fill
-                            className="object-contain p-1"
-                            priority
+                            className="w-7 h-7 object-contain"
                         />
                     </div>
                     <div className="text-2xl md:text-3xl font-heading font-bold text-secondary group-hover:text-secondary/80 transition-colors tracking-tight">
