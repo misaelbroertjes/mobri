@@ -28,28 +28,42 @@ export function Hero() {
     // Smooth spring physics for parallax
     const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
-    // Parallax transforms
-    const y1 = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), springConfig);
-    const y2 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -150]), springConfig);
-    const rotate = useSpring(useTransform(scrollYProgress, [0, 1], [0, 10]), springConfig);
-    const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1.05]), springConfig);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    // Define ALL hooks at the top level, non-conditionally
+    const y1Base = useTransform(scrollYProgress, [0, 1], [0, 200]);
+    const y2Base = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const rotateBase = useTransform(scrollYProgress, [0, 1], [0, 10]);
+    const rotateLineBase = useTransform(scrollYProgress, [0, 1], [0, -20]);
+    const scaleBase = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+    const opacityBase = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-    // Avoid hydration mismatch by not rendering parallax-dependent elements during server-side pass
+    const y1 = useSpring(y1Base, springConfig);
+    const y2 = useSpring(y2Base, springConfig);
+    const rotate = useSpring(rotateBase, springConfig);
+    const scale = useSpring(scaleBase, springConfig);
+    const opacity = opacityBase;
+
+    // Use values conditionally in CSS/Props, not the hooks themselves
+    const parallaxY1 = (mounted && !isMobile) ? y1 : 0;
+    const parallaxY2 = (mounted && !isMobile) ? y2 : 0;
+    const parallaxRotate = (mounted && !isMobile) ? rotate : 0;
+    const parallaxRotateLine = (mounted && !isMobile) ? rotateLineBase : 0;
+    const parallaxScale = (mounted && !isMobile) ? scale : 1;
+    const parallaxOpacity = (mounted && !isMobile) ? opacity : 1;
+
     return (
         <section
             id="hero"
             ref={ref}
             className="relative min-h-screen flex items-center pt-20 overflow-hidden"
         >
-            {/* Background Elements - Parallaxing in opposite direction (Only on desktop and after mount) */}
+            {/* Background Elements */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <motion.div
-                    style={{ y: (mounted && !isMobile) ? y1 : 0, opacity: (mounted && !isMobile) ? opacity : 0.5 }}
+                    style={{ y: parallaxY1, opacity: (mounted && !isMobile) ? 0.5 : 0.5 }}
                     className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full blur-3xl opacity-50"
                 />
                 <motion.div
-                    style={{ y: (mounted && !isMobile) ? y2 : 0, opacity: (mounted && !isMobile) ? opacity : 1 }}
+                    style={{ y: parallaxY2, opacity: (mounted && !isMobile) ? 0.3 : 1 }}
                     className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-tr-full blur-3xl"
                 />
             </div>
@@ -88,12 +102,13 @@ export function Hero() {
                     </div>
                 </motion.div>
 
-                {/* Visual Content - Parallax Composition (Desktop Only) */}
+                {/* Visual Content - Hidden on Mobile */}
                 <motion.div
                     style={{
-                        y: (mounted && !isMobile) ? y2 : 0,
-                        rotate: (mounted && !isMobile) ? rotate : 0,
-                        scale: (mounted && !isMobile) ? scale : 1
+                        y: parallaxY2,
+                        rotate: parallaxRotate,
+                        scale: parallaxScale,
+                        opacity: (mounted) ? 1 : 0
                     }}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -136,19 +151,19 @@ export function Hero() {
                         </div>
                     </div>
 
-                    {/* Decorative Elements with their own offset */}
+                    {/* Decorative Elements */}
                     <motion.div
-                        style={{ y: (mounted && !isMobile) ? y1 : 0 }}
+                        style={{ y: parallaxY1 }}
                         className="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-full opacity-20"
                     />
                     <motion.div
-                        style={{ y: (mounted && !isMobile) ? y2 : 0 }}
+                        style={{ y: parallaxY2 }}
                         className="absolute bottom-[-20px] -left-10 w-40 h-40 bg-secondary/10 rounded-full"
                     />
 
                     {/* Connection line graphic */}
                     <motion.svg
-                        style={{ rotate: (mounted && !isMobile) ? useTransform(scrollYProgress, [0, 1], [0, -20]) : 0 }}
+                        style={{ rotate: parallaxRotateLine }}
                         className="absolute top-1/2 -left-12 w-24 h-24 text-primary/30 z-0"
                         viewBox="0 0 100 100"
                     >
