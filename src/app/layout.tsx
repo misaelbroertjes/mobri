@@ -18,6 +18,21 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Mobri | Websites & Digital Assistance",
   description: "Professionele websites en digitale ondersteuning met een persoonlijke touch.",
+  openGraph: {
+    title: "Mobri | Websites & Digital Assistance",
+    description: "Professionele websites en digitale ondersteuning met een persoonlijke touch.",
+    url: "https://mobri.nl",
+    siteName: "Mobri",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "nl_NL",
+    type: "website",
+  },
 };
 
 import Script from "next/script";

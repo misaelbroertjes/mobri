@@ -3,14 +3,14 @@
 Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.nl.
 
 ## Fase 1: Branding & Juridisch
-- [ ] **Stap 1.1: Logo & Branding**
-    - [ ] Logo implementeren (gebaseerd op nieuwe upload)
-    - [ ] Favicon genereren en toevoegen
-    - [ ] OpenGraph image (social media preview) instellen
-- [ ] **Stap 1.2: Analytics & Privacy**
-    - [ ] Google Analytics basis script toevoegen
-    - [ ] Cookie Consent Banner bouwen (Sophisticated Warmth stijl)
-    - [ ] Privacy Policy tekst/pagina voorbereiden
+- [x] **Stap 1.1: Logo & Branding**
+    - [x] Logo implementeren (gebaseerd op nieuwe upload)
+    - [x] Favicon genereren en toevoegen
+    - [x] OpenGraph image (social media preview) instellen
+- [x] **Stap 1.2: Analytics & Privacy**
+    - [x] Google Analytics basis script toevoegen
+    - [x] Cookie Consent Banner bouwen (Sophisticated Warmth stijl)
+    - [x] Privacy Policy tekst/pagina voorbereiden
 
 ## Fase 2: Content & Trust
 - [ ] **Stap 2.1: Het Team**
