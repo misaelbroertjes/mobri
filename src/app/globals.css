@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+}
+
+:root {
+  /* Warm Ocher */
+  --primary: #E0AA3E;
+  --primary-foreground: #112A32;
+
+  /* Deep Dark Teal */
+  --secondary: #112A32;
+  --secondary-foreground: #FDFBF7;
+
+  /* Cream/Off-white Background */
+  --background: #FDFBF7;
+  --foreground: #112A32;
+
+  /* Muted/Subtle */
+  --muted: #EAE8E2;
+  --muted-foreground: #5A6A70;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Inversion (Optional, sticking to brand identity mostly) */
+    --background: #0B1C22;
+    /* Even darker teal */
+    --foreground: #FDFBF7;
+
+    --muted: #1A3038;
+    --muted-foreground: #94A3B8;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  position: relative;
+}
