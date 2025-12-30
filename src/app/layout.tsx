@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: "Professionele websites en digitale ondersteuning met een persoonlijke touch.",
 };
 
+import Script from "next/script";
+import { CookieBanner } from "@/components/CookieBanner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +30,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className="scroll-smooth">
+      <head>
+        {/* Google Analytics Consent Mode Default */}
+        <Script id="google-analytics-consent" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            // Default consent to 'denied'
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied'
+            });
+          `}
+        </Script>
+
+        {/* Google Analytics Global Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-B516DT6MVG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            gtag('js', new Date());
+            gtag('config', 'G-B516DT6MVG');
+          `}
+        </Script>
+      </head>
       <body
         className={cn(
           inter.variable,
@@ -35,6 +64,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

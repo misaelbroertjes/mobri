@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Image from "next/image";
+
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,14 +32,22 @@ export function Header() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 isScrolled
-                    ? "bg-background/80 backdrop-blur-md shadow-sm py-4"
-                    : "bg-transparent py-6"
+                    ? "bg-background/80 backdrop-blur-md shadow-sm py-3"
+                    : "bg-transparent py-5"
             )}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 group">
-                    {/* Simple Logo Placeholder - replacing with text/icon for now if image not available */}
-                    <div className="text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                <Link href="/" className="flex items-center gap-3 group">
+                    <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-xl bg-primary/5 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <Image
+                            src="/logo.png"
+                            alt="Mobri Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
+                    <div className="text-xl md:text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
                         Mobri<span className="text-primary">.</span>
                     </div>
                 </Link>

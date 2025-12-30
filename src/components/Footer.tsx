@@ -3,20 +3,40 @@
 import Link from "next/link";
 import { Linkedin, Instagram } from "lucide-react";
 
+import Image from "next/image";
+
 export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-secondary text-secondary-foreground py-12 border-t border-secondary-foreground/10">
             <div className="container mx-auto px-4 py-12 md:py-16">
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
-                    <div className="space-y-4">
-                        <Link href="/" className="text-2xl font-heading font-bold">
-                            Mobri<span className="text-primary">.</span>
+                <div className="grid md:grid-cols-4 gap-8 mb-12">
+                    <div className="space-y-6">
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-white/5 p-1 group-hover:scale-105 transition-transform duration-300">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Mobri Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="text-2xl font-heading font-bold text-white tracking-tight">
+                                Mobri<span className="text-primary">.</span>
+                            </div>
                         </Link>
-                        <p className="text-muted-foreground max-w-xs">
-                            Professionele websites en digitale ondersteuning voor ondernemers.
+                        <p className="text-white/60 text-sm leading-relaxed max-w-xs">
+                            Professionele websites en digitale ondersteuning voor ondernemers met een visie.
                         </p>
+                        <div className="flex gap-4">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
+                                <Instagram className="w-4 h-4" />
+                            </a>
+                        </div>
                     </div>
 
                     <div className="space-y-4">
