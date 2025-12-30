@@ -8,8 +8,10 @@ import { useRef, useEffect, useState } from "react";
 export function Hero() {
     const ref = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
@@ -33,20 +35,21 @@ export function Hero() {
     const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1.05]), springConfig);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    // Avoid hydration mismatch by not rendering parallax-dependent elements during server-side pass
     return (
         <section
             id="hero"
             ref={ref}
             className="relative min-h-screen flex items-center pt-20 overflow-hidden"
         >
-            {/* Background Elements - Parallaxing in opposite direction (Only on desktop) */}
+            {/* Background Elements - Parallaxing in opposite direction (Only on desktop and after mount) */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <motion.div
-                    style={{ y: isMobile ? 0 : y1, opacity: isMobile ? 0.5 : opacity }}
+                    style={{ y: (mounted && !isMobile) ? y1 : 0, opacity: (mounted && !isMobile) ? opacity : 0.5 }}
                     className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full blur-3xl opacity-50"
                 />
                 <motion.div
-                    style={{ y: isMobile ? 0 : y2, opacity: isMobile ? 1 : opacity }}
+                    style={{ y: (mounted && !isMobile) ? y2 : 0, opacity: (mounted && !isMobile) ? opacity : 1 }}
                     className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-tr-full blur-3xl"
                 />
             </div>
@@ -87,7 +90,11 @@ export function Hero() {
 
                 {/* Visual Content - Parallax Composition (Desktop Only) */}
                 <motion.div
-                    style={{ y: isMobile ? 0 : y2, rotate: isMobile ? 0 : rotate, scale: isMobile ? 1 : scale }}
+                    style={{
+                        y: (mounted && !isMobile) ? y2 : 0,
+                        rotate: (mounted && !isMobile) ? rotate : 0,
+                        scale: (mounted && !isMobile) ? scale : 1
+                    }}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -131,17 +138,17 @@ export function Hero() {
 
                     {/* Decorative Elements with their own offset */}
                     <motion.div
-                        style={{ y: isMobile ? 0 : y1 }}
+                        style={{ y: (mounted && !isMobile) ? y1 : 0 }}
                         className="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-full opacity-20"
                     />
                     <motion.div
-                        style={{ y: isMobile ? 0 : y2 }}
+                        style={{ y: (mounted && !isMobile) ? y2 : 0 }}
                         className="absolute bottom-[-20px] -left-10 w-40 h-40 bg-secondary/10 rounded-full"
                     />
 
                     {/* Connection line graphic */}
                     <motion.svg
-                        style={{ rotate: isMobile ? 0 : useTransform(scrollYProgress, [0, 1], [0, -20]) }}
+                        style={{ rotate: (mounted && !isMobile) ? useTransform(scrollYProgress, [0, 1], [0, -20]) : 0 }}
                         className="absolute top-1/2 -left-12 w-24 h-24 text-primary/30 z-0"
                         viewBox="0 0 100 100"
                     >
