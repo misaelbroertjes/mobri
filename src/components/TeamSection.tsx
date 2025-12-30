@@ -1,34 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export function TeamSection() {
-    const sectionRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start end", "end start"]
-    });
-
-    // Use spring for smoother movement
-    const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-
-    // Parallax movement for background shape
-    // Removed Tailwind translates to avoid conflicts
-    const yBg = useSpring(useTransform(scrollYProgress, [0, 1], [-80, 80]), springConfig);
-    const xBg = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), springConfig);
-
     return (
-        <section
-            id="team"
-            ref={sectionRef}
-            className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden"
-        >
-            {/* Background decoration with parallax - Handled entirely by Framer Motion */}
-            <motion.div
-                style={{ y: yBg, x: xBg }}
-                className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-60"
-            />
+        <section id="team" className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -43,11 +21,9 @@ export function TeamSection() {
                 <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
                     {/* Misaël */}
                     <motion.div
-                        style={{ y: useTransform(scrollYProgress, [0, 1], [20, -20]) }}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
                         className="bg-secondary-foreground/5 p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group"
                     >
                         <div className="flex flex-col items-center text-center gap-6">
@@ -68,11 +44,10 @@ export function TeamSection() {
 
                     {/* Eva */}
                     <motion.div
-                        style={{ y: useTransform(scrollYProgress, [0, 1], [-20, 20]) }}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                        transition={{ delay: 0.1 }}
                         className="bg-secondary-foreground/5 p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group"
                     >
                         <div className="flex flex-col items-center text-center gap-6">
