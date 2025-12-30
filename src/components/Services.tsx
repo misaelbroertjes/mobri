@@ -2,7 +2,7 @@
 
 import { Monitor, PenTool, Wrench, MessageSquareHeart } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const services = [
     {
@@ -33,6 +33,17 @@ const services = [
 
 export function Services() {
     const sectionRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -63,7 +74,7 @@ export function Services() {
                         return (
                             <motion.div
                                 key={index}
-                                style={{ y }}
+                                style={{ y: isMobile ? 0 : y }}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

@@ -3,10 +3,21 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export function Hero() {
     const ref = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"]
@@ -14,7 +25,7 @@ export function Hero() {
 
     // Smooth spring physics for parallax
     const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-    
+
     // Parallax transforms
     const y1 = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), springConfig);
     const y2 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -150]), springConfig);
@@ -28,15 +39,15 @@ export function Hero() {
             ref={ref}
             className="relative min-h-screen flex items-center pt-20 overflow-hidden"
         >
-            {/* Background Elements - Parallaxing in opposite direction */}
+            {/* Background Elements - Parallaxing in opposite direction (Only on desktop) */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <motion.div 
-                    style={{ y: y1, opacity }}
-                    className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full blur-3xl opacity-50" 
+                <motion.div
+                    style={{ y: isMobile ? 0 : y1, opacity: isMobile ? 0.5 : opacity }}
+                    className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full blur-3xl opacity-50"
                 />
-                <motion.div 
-                    style={{ y: y2, opacity }}
-                    className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-tr-full blur-3xl" 
+                <motion.div
+                    style={{ y: isMobile ? 0 : y2, opacity: isMobile ? 1 : opacity }}
+                    className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-tr-full blur-3xl"
                 />
             </div>
 
@@ -74,9 +85,9 @@ export function Hero() {
                     </div>
                 </motion.div>
 
-                {/* Visual Content - Parallax Composition */}
+                {/* Visual Content - Parallax Composition (Desktop Only) */}
                 <motion.div
-                    style={{ y: y2, rotate, scale }}
+                    style={{ y: isMobile ? 0 : y2, rotate: isMobile ? 0 : rotate, scale: isMobile ? 1 : scale }}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -119,19 +130,19 @@ export function Hero() {
                     </div>
 
                     {/* Decorative Elements with their own offset */}
-                    <motion.div 
-                        style={{ y: y1 }}
-                        className="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-full opacity-20" 
+                    <motion.div
+                        style={{ y: isMobile ? 0 : y1 }}
+                        className="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-full opacity-20"
                     />
-                    <motion.div 
-                        style={{ y: y2 }}
-                        className="absolute bottom-[-20px] -left-10 w-40 h-40 bg-secondary/10 rounded-full" 
+                    <motion.div
+                        style={{ y: isMobile ? 0 : y2 }}
+                        className="absolute bottom-[-20px] -left-10 w-40 h-40 bg-secondary/10 rounded-full"
                     />
-                    
+
                     {/* Connection line graphic */}
-                    <motion.svg 
-                        style={{ rotate: useTransform(scrollYProgress, [0, 1], [0, -20]) }}
-                        className="absolute top-1/2 -left-12 w-24 h-24 text-primary/30 z-0" 
+                    <motion.svg
+                        style={{ rotate: isMobile ? 0 : useTransform(scrollYProgress, [0, 1], [0, -20]) }}
+                        className="absolute top-1/2 -left-12 w-24 h-24 text-primary/30 z-0"
                         viewBox="0 0 100 100"
                     >
                         <path d="M0,50 Q50,0 100,50" fill="none" stroke="currentColor" strokeWidth="4" strokeDasharray="8 8" />
