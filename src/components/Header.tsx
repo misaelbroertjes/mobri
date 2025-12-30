@@ -38,12 +38,20 @@ export function Header() {
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group">
-                    <img
-                        src="/logo.png"
-                        alt="Mobri Logo"
-                        className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
-                    />
-                    <div className="text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                    <div className={cn(
+                        "relative w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300",
+                        isScrolled ? "bg-primary/10" : "bg-white/10"
+                    )}>
+                        <img
+                            src="/logo.png"
+                            alt="Mobri Logo"
+                            className="w-7 h-7 object-contain group-hover:scale-110 transition-transform"
+                        />
+                    </div>
+                    <div className={cn(
+                        "text-2xl font-heading font-bold transition-colors tracking-tight",
+                        isScrolled ? "text-secondary" : "text-white"
+                    )}>
                         Mobri<span className="text-primary">.</span>
                     </div>
                 </Link>
@@ -54,14 +62,22 @@ export function Header() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium hover:text-primary transition-colors"
+                            className={cn(
+                                "text-sm font-medium transition-colors hover:text-primary",
+                                isScrolled ? "text-secondary" : "text-white"
+                            )}
                         >
                             {link.name}
                         </Link>
                     ))}
                     <Link
                         href="#contact"
-                        className="px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
+                        className={cn(
+                            "px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg hover:scale-105 active:scale-95",
+                            isScrolled
+                                ? "bg-primary text-primary-foreground shadow-primary/20"
+                                : "bg-white text-secondary shadow-white/10"
+                        )}
                     >
                         Start Project
                     </Link>
