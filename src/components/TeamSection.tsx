@@ -1,12 +1,29 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 export function TeamSection() {
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    });
+
+    // Subtly move the background shape
+    const yBg = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
     return (
-        <section id="team" className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+        <section
+            id="team"
+            ref={sectionRef}
+            className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden"
+        >
+            {/* Background decoration with parallax */}
+            <motion.div
+                style={{ y: yBg }}
+                className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"
+            />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -20,16 +37,15 @@ export function TeamSection() {
 
                 <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
                     {/* Misaël */}
-                    {/* Misaël */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                         className="bg-secondary-foreground/5 p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group"
                     >
                         <div className="flex flex-col items-center text-center gap-6">
                             <div className="w-32 h-32 bg-secondary rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary transition-all duration-300 shadow-xl">
-                                {/* Placeholder for Misaël */}
                                 <div className="w-full h-full flex items-center justify-center text-2xl font-bold font-heading text-secondary-foreground">MB</div>
                             </div>
                             <div>
@@ -46,15 +62,14 @@ export function TeamSection() {
 
                     {/* Eva */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                         className="bg-secondary-foreground/5 p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group"
                     >
                         <div className="flex flex-col items-center text-center gap-6">
                             <div className="w-32 h-32 bg-secondary rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary transition-all duration-300 shadow-xl">
-                                {/* Placeholder for Eva */}
                                 <div className="w-full h-full flex items-center justify-center text-2xl font-bold font-heading text-secondary-foreground">EB</div>
                             </div>
                             <div>

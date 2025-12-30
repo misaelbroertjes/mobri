@@ -2,11 +2,19 @@
 
 import { useForm } from "react-hook-form";
 import { Send, Mail, MapPin, Phone, CheckCircle2, AlertCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useState, useRef } from "react";
 
 export function ContactForm() {
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    });
+
+    const yBg = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+
     const {
         register,
         handleSubmit,
@@ -38,9 +46,16 @@ export function ContactForm() {
     };
 
     return (
-        <section id="contact" className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary-foreground/5 skew-x-12 translate-x-1/4 pointer-events-none" />
+        <section
+            id="contact"
+            ref={sectionRef}
+            className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden"
+        >
+            {/* Background elements with parallax */}
+            <motion.div
+                style={{ y: yBg }}
+                className="absolute top-0 right-0 w-1/2 h-full bg-secondary-foreground/5 skew-x-12 translate-x-1/4 pointer-events-none"
+            />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
