@@ -37,17 +37,17 @@ export function Header() {
             )}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-xl bg-primary/5 p-1 group-hover:scale-105 transition-transform duration-300">
+                <Link href="/" className="flex items-center gap-4 group">
+                    <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-2xl bg-[#F5F2EA] p-2 group-hover:scale-105 transition-all duration-300 shadow-sm border border-black/5">
                         <Image
                             src="/logo.png"
                             alt="Mobri Logo"
                             fill
-                            className="object-contain"
+                            className="object-contain p-1"
                             priority
                         />
                     </div>
-                    <div className="text-xl md:text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                    <div className="text-2xl md:text-3xl font-heading font-bold text-secondary group-hover:text-secondary/80 transition-colors tracking-tight">
                         Mobri<span className="text-primary">.</span>
                     </div>
                 </Link>
