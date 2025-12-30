@@ -44,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className="scroll-smooth">
+    <html lang="nl" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Google Analytics Consent Mode Default */}
         <Script id="google-analytics-consent" strategy="beforeInteractive">

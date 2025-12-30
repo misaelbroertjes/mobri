@@ -82,7 +82,7 @@ export function Services() {
     });
 
     if (!mounted) return (
-        <section id="services" className="py-24 bg-background relative overflow-hidden">
+        <section id="services" ref={sectionRef} className="py-24 bg-background relative overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">Alles onder één dak.</h2>
