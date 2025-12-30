@@ -10,6 +10,16 @@ export function CookieBanner() {
     useEffect(() => {
         // Check if user has already made a choice
         const consent = localStorage.getItem("cookie-consent");
+
+        // If they already granted consent, we must update GA immediately on mount
+        if (consent === "granted") {
+            if (typeof window !== "undefined" && (window as any).gtag) {
+                (window as any).gtag('consent', 'update', {
+                    'analytics_storage': 'granted'
+                });
+            }
+        }
+
         if (!consent) {
             // Show banner after a short delay
             const timer = setTimeout(() => setIsVisible(true), 1500);
