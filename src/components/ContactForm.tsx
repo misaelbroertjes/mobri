@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { Send, Mail, MapPin, Phone, CheckCircle2, AlertCircle } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { useState, useRef } from "react";
 
 export function ContactForm() {
@@ -13,7 +13,13 @@ export function ContactForm() {
         offset: ["start end", "end start"]
     });
 
-    const yBg = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+    const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+
+    // Parallax background shape
+    const yBg = useSpring(useTransform(scrollYProgress, [0, 1], [-50, 50]), springConfig);
+
+    // Subtle parallax for the info column
+    const yInfo = useSpring(useTransform(scrollYProgress, [0, 1], [30, -30]), springConfig);
 
     const {
         register,
@@ -51,17 +57,20 @@ export function ContactForm() {
             ref={sectionRef}
             className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden"
         >
-            {/* Background elements with parallax */}
+            {/* Background elements with parallax - Simplified to avoid visual 'breakage' */}
             <motion.div
                 style={{ y: yBg }}
-                className="absolute top-0 right-0 w-1/2 h-full bg-secondary-foreground/5 skew-x-12 translate-x-1/4 pointer-events-none"
+                className="absolute top-0 right-0 w-1/2 h-full bg-secondary-foreground/5 skew-x-12 origin-top pointer-events-none"
             />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-                    {/* Left Column: Info & Context */}
-                    <div className="space-y-8 lg:sticky lg:top-24">
+                    {/* Left Column: Info & Context with subtle parallax */}
+                    <motion.div
+                        style={{ y: yInfo }}
+                        className="space-y-8 lg:sticky lg:top-24"
+                    >
                         <div>
                             <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                                 Contact
@@ -117,7 +126,7 @@ export function ContactForm() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right Column: Form */}
                     <motion.div

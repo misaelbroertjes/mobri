@@ -10,8 +10,13 @@ export function TeamSection() {
         offset: ["start end", "end start"]
     });
 
-    // Subtly move the background shape
-    const yBg = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+    // Use spring for smoother movement
+    const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+
+    // Parallax movement for background shape
+    // Removed Tailwind translates to avoid conflicts
+    const yBg = useSpring(useTransform(scrollYProgress, [0, 1], [-80, 80]), springConfig);
+    const xBg = useSpring(useTransform(scrollYProgress, [0, 1], [40, -40]), springConfig);
 
     return (
         <section
@@ -19,10 +24,10 @@ export function TeamSection() {
             ref={sectionRef}
             className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden"
         >
-            {/* Background decoration with parallax */}
+            {/* Background decoration with parallax - Handled entirely by Framer Motion */}
             <motion.div
-                style={{ y: yBg }}
-                className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"
+                style={{ y: yBg, x: xBg }}
+                className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-60"
             />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -38,6 +43,7 @@ export function TeamSection() {
                 <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
                     {/* Misaël */}
                     <motion.div
+                        style={{ y: useTransform(scrollYProgress, [0, 1], [20, -20]) }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -62,6 +68,7 @@ export function TeamSection() {
 
                     {/* Eva */}
                     <motion.div
+                        style={{ y: useTransform(scrollYProgress, [0, 1], [-20, 20]) }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
