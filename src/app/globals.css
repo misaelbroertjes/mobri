@@ -36,17 +36,7 @@
   --muted-foreground: #5A6A70;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode Inversion (Optional, sticking to brand identity mostly) */
-    --background: #0B1C22;
-    /* Even darker teal */
-    --foreground: #FDFBF7;
 
-    --muted: #1A3038;
-    --muted-foreground: #94A3B8;
-  }
-}
 
 body {
   background: var(--background);
