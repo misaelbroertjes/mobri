@@ -16,11 +16,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Mobri | Websites & Digital Assistance",
-  description: "Professionele websites en digitale ondersteuning met een persoonlijke touch.",
+  title: "Mobri | Websites & Virtual Assistant",
+  description: "Websites met een persoonlijke touch. Wij helpen ondernemers met professionele websites en support als Virtual Assistant.",
   openGraph: {
-    title: "Mobri | Websites & Digital Assistance",
-    description: "Professionele websites en digitale ondersteuning met een persoonlijke touch.",
+    title: "Mobri | Websites & Virtual Assistant",
+    description: "Professionele websites en Virtual Assistant services met een persoonlijke touch.",
     url: "https://mobri.nl",
     siteName: "Mobri",
     images: [
@@ -44,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="nl" className="scroll-smooth" suppressHydrationWarning style={{ scrollPaddingTop: '100px' }}>
       <head>
         {/* Google Analytics Consent Mode Default */}
         <Script id="google-analytics-consent" strategy="beforeInteractive">

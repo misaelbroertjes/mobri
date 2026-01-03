@@ -26,7 +26,7 @@ export function Footer() {
                             </div>
                         </Link>
                         <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-                            Professionele websites en digitale ondersteuning voor ondernemers met een visie.
+                            Professionele websites en Virtual Assistant services voor ondernemers met een visie.
                         </p>
                         <div className="flex gap-4">
                             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">

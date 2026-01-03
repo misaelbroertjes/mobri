@@ -54,17 +54,26 @@ export function Header() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-secondary hover:text-primary transition-colors"
+                            className="text-sm font-medium text-secondary hover:text-primary transition-colors relative group/link"
                         >
                             {link.name}
+                            <motion.span
+                                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover/link:w-full"
+                                layoutId={`underline-${link.name}`}
+                            />
                         </Link>
                     ))}
-                    <Link
-                        href="/#contact"
-                        className="px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/20 hover:scale-105 active:scale-95"
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                     >
-                        Start Project
-                    </Link>
+                        <Link
+                            href="/#contact"
+                            className="px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 block"
+                        >
+                            Start Project
+                        </Link>
+                    </motion.div>
                 </nav>
 
                 {/* Mobile Toggle */}
