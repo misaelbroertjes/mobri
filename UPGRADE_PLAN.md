@@ -10,7 +10,8 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
 - [x] **Stap 1.2: Analytics & Privacy**
     - [x] Google Analytics basis script toevoegen
     - [x] Cookie Consent Banner bouwen (Sophisticated Warmth stijl)
-    - [x] Privacy Policy tekst/pagina voorbereiden
+    - [x] Privacy Policy pagina aanmaken
+    - [x] Algemene Voorwaarden pagina aanmaken
 
 ## Fase 2: Content & Trust
 - [ ] **Stap 2.1: Het Team**

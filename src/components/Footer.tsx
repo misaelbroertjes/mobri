@@ -51,8 +51,16 @@ export function Footer() {
                         <h4 className="font-bold text-foreground">Details</h4>
                         <ul className="space-y-2 text-muted-foreground text-sm">
                             <li>KVK: 66470188</li>
-                            <li>Algemene Voorwaarden</li>
-                            <li>Privacy Verklaring</li>
+                            <li>
+                                <Link href="/voorwaarden" className="hover:text-primary transition-colors">
+                                    Algemene Voorwaarden
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/privacy" className="hover:text-primary transition-colors">
+                                    Privacy Verklaring
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
