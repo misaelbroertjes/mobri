@@ -73,7 +73,7 @@ export function ContactForm() {
                                     <MapPin className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-lg mb-1">bezoekadres</h3>
+                                    <h3 className="font-bold text-white text-lg mb-1">Postadres</h3>
                                     <p className="opacity-80 text-sm leading-relaxed">
                                         Bolsterturf 2 <br />
                                         7942 MC Meppel
