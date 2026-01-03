@@ -21,10 +21,10 @@ export function Header() {
     }, []);
 
     const navLinks = [
-        { name: "Home", href: "#hero" },
-        { name: "Team", href: "#team" },
-        { name: "Diensten", href: "#services" },
-        { name: "Contact", href: "#contact" },
+        { name: "Home", href: "/#hero" },
+        { name: "Team", href: "/#team" },
+        { name: "Diensten", href: "/#services" },
+        { name: "Contact", href: "/#contact" },
     ];
 
     return (
@@ -60,7 +60,7 @@ export function Header() {
                         </Link>
                     ))}
                     <Link
-                        href="#contact"
+                        href="/#contact"
                         className="px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/20 hover:scale-105 active:scale-95"
                     >
                         Start Project

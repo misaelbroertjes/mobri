@@ -87,14 +87,14 @@ export function Hero() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link
-                            href="#contact"
+                            href="/#contact"
                             className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group"
                         >
                             Start een project
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
-                            href="#services"
+                            href="/#services"
                             className="px-8 py-4 bg-transparent border border-muted-foreground/30 text-foreground rounded-full font-semibold text-lg hover:bg-secondary/5 transition-all text-center"
                         >
                             Onze diensten
