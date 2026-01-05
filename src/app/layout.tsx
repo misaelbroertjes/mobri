@@ -100,6 +100,18 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-MKW5BPB7');
           `}
         </Script>
+
+        {/* Google Analytics Global Tag (Restore for guaranteed tracking) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-B516DT6MVG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            gtag('js', new Date());
+            gtag('config', 'G-B516DT6MVG');
+          `}
+        </Script>
       </head>
       <body
         className={cn(
