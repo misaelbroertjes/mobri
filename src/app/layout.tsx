@@ -16,12 +16,16 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mobri.nl"),
   title: "Mobri | Websites & Virtual Assistant",
   description: "Websites met een persoonlijke touch. Wij helpen ondernemers met professionele websites en support als Virtual Assistant.",
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: "Mobri | Websites & Virtual Assistant",
     description: "Professionele websites en Virtual Assistant services met een persoonlijke touch.",
-    url: "https://mobri.nl",
+    url: "https://www.mobri.nl",
     siteName: "Mobri",
     images: [
       {
