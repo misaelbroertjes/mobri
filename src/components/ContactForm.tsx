@@ -128,6 +128,18 @@ export function ContactForm() {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
+                                {/* Honeypot - Hidden from humans */}
+                                <div className="hidden">
+                                    <label htmlFor="website">Website</label>
+                                    <input
+                                        id="website"
+                                        type="text"
+                                        {...register("website")}
+                                        tabIndex={-1}
+                                        autoComplete="off"
+                                    />
+                                </div>
+
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Naam</label>
                                     <input

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google"; // Using Inter & Outfit
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,12 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  themeColor: '#112A32',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mobri.nl"),
@@ -50,6 +56,27 @@ export default function RootLayout({
   return (
     <html lang="nl" className="scroll-smooth" suppressHydrationWarning style={{ scrollPaddingTop: '100px' }}>
       <head>
+        {/* Schema.org for Local Business */}
+        <Script id="schema-org" type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Mobri",
+            "description": "Websites en Virtual Assistant services",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Bolsterturf 2",
+              "addressLocality": "Meppel",
+              "postalCode": "7942 MC",
+              "addressCountry": "NL"
+            },
+            "telephone": "+31638125176",
+            "email": "info@mobri.nl",
+            "url": "https://www.mobri.nl",
+            "priceRange": "$$"
+          })
+        }} />
+
         {/* Google Analytics Consent Mode Default */}
         <Script id="google-analytics-consent" strategy="beforeInteractive">
           {`
@@ -63,7 +90,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager - Single Source of Truth */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -71,18 +98,6 @@ export default function RootLayout({
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-MKW5BPB7');
-          `}
-        </Script>
-
-        {/* Google Analytics Global Tag */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-B516DT6MVG"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            gtag('js', new Date());
-            gtag('config', 'G-B516DT6MVG');
           `}
         </Script>
       </head>

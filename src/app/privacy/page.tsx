@@ -4,7 +4,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Privacyverklaring | Mobri",
-    description: "Privacyverklaring van Mobri. Wij gaan zorgvuldig om met uw persoonlijke gegevens.",
+    description: "Privacyverklaring van mobri.nl",
+    alternates: {
+        canonical: "https://www.mobri.nl/privacy",
+    },
 };
 
 export default function PrivacyPage() {
