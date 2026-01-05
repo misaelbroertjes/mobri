@@ -34,7 +34,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: webroots/sites/mobri.nl/
-          protocol: ftps
+          protocol: ftp
+          security: loose
           exclude: |
             **/.git*
             **/.git*/**
