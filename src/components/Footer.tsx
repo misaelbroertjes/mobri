@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Instagram } from "lucide-react";
+import { LinkedinIcon } from "lucide-react";
 
 import Image from "next/image";
 
@@ -29,11 +29,8 @@ export function Footer() {
                             Professionele websites en Virtual Assistant services voor ondernemers met een visie.
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
-                                <Linkedin className="w-4 h-4" />
-                            </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
-                                <Instagram className="w-4 h-4" />
+                            <a href="https://www.linkedin.com/company/mobri" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
+                                <LinkedinIcon className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
