@@ -48,7 +48,7 @@ const BLOB_TRANSITION = {
     duration: 12,
     repeat: Infinity,
     ease: "easeInOut"
-};
+} as const;
 
 function HighlightText({ text }: { text: string }) {
     const parts = text.split(/\[(.*?)\]/);
