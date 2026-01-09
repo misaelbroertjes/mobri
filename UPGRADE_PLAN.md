@@ -56,5 +56,5 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
     - [ ] Alt-tags optimalisatie check
 - [ ] **Stap 5.3: Conversie & Trust**
     - [ ] WhatsApp-knop integratie
-    - [ ] Bedankpagina na contactformulier
+    - [x] Bedankpagina na contactformulier (Gereed & Gekoppeld)
     - [ ] (Later) Testimonials / Google Reviews widget (Zodra eerste reviews binnen zijn)

@@ -1,12 +1,14 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Send, Mail, MapPin, Phone, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export function ContactForm() {
-    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "error">("idle");
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -26,8 +28,8 @@ export function ContactForm() {
             });
 
             if (response.ok) {
-                setSubmitStatus("success");
                 reset();
+                router.push("/bedankt");
             } else {
                 setSubmitStatus("error");
             }
@@ -210,17 +212,6 @@ export function ContactForm() {
 
                             {/* Status Messages */}
                             <AnimatePresence mode="wait">
-                                {submitStatus === "success" && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0 }}
-                                        className="p-5 bg-green-500/10 border border-green-500/20 rounded-2xl flex items-center gap-4 text-green-400 text-sm font-medium"
-                                    >
-                                        <CheckCircle2 className="w-6 h-6 shrink-0" />
-                                        <span>Bedankt! We hebben je bericht ontvangen en nemen snel contact op.</span>
-                                    </motion.div>
-                                )}
                                 {submitStatus === "error" && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
