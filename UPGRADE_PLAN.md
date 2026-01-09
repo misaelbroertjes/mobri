@@ -14,8 +14,8 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
     - [x] Canonical URLs voor juridische pagina's
 
 ## 🚧 Fase 2: Content & Trust (In Uitvoering)
-- [ ] **Stap 2.1: Het Team**
-    - [ ] Foto's en bios toevoegen
+- [x] **Stap 2.1: Het Team**
+    - [x] Foto's en bios toevoegen
 - [x] **Stap 2.2: Terminologie**
     - [x] Rebranding naar "Virtual Assistant" (overal doorgevoerd)
 - [ ] **Stap 2.3: Informatievoorziening**
