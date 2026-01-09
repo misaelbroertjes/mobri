@@ -1,5 +1,14 @@
 import { ProductPageContent } from "@/components/ProductPageContent";
 import { Monitor } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Web Development | Mobri",
+    description: "Wij bouwen moderne, snelle en conversie-gerichte websites. Van maatwerk Next.js oplossingen tot flexibele WordPress systemen.",
+    alternates: {
+        canonical: "https://www.mobri.nl/diensten/web-development",
+    },
+};
 
 export default function WebDevelopmentPage() {
     return (

@@ -1,5 +1,14 @@
 import { ProductPageContent } from "@/components/ProductPageContent";
 import { PenTool } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Design & Branding | Mobri",
+    description: "Krachtige visuele identiteiten die jouw verhaal vertellen. Van logo-ontwerp tot complete brand identity en UI/UX design.",
+    alternates: {
+        canonical: "https://www.mobri.nl/diensten/design",
+    },
+};
 
 export default function DesignPage() {
     return (
