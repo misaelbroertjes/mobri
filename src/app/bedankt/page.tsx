@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { CheckCircle2, ArrowLeft, Linkedin, Mail } from "lucide-react";
+import { CheckCircle2, ArrowLeft, LinkedinIcon } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -95,7 +95,7 @@ export default function ThankYouPage() {
                                 target="_blank"
                                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-secondary text-secondary rounded-full font-bold transition-all hover:bg-secondary hover:text-white"
                             >
-                                <Linkedin className="w-4 h-4" />
+                                <LinkedinIcon className="w-4 h-4" />
                                 Volg op LinkedIn
                             </Link>
                         </motion.div>
