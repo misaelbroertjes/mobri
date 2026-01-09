@@ -171,9 +171,10 @@ export function ContactForm() {
                                         {...register("subject")}
                                         className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-4 focus:ring-primary/30 focus:bg-white/10 transition-all appearance-none cursor-pointer"
                                     >
-                                        <option value="website" className="bg-secondary text-white">Ik wil een nieuwe website</option>
-                                        <option value="va" className="bg-secondary text-white">Ik zoek een Virtual Assistant</option>
-                                        <option value="design" className="bg-secondary text-white">Ik heb design hulp nodig</option>
+                                        <option value="web-development" className="bg-secondary text-white">Web Development</option>
+                                        <option value="onderhoud" className="bg-secondary text-white">Onderhoud & Content Support</option>
+                                        <option value="virtual-assistant" className="bg-secondary text-white">Virtual Assistant</option>
+                                        <option value="design" className="bg-secondary text-white">Design & Branding</option>
                                         <option value="other" className="bg-secondary text-white">Iets anders</option>
                                     </select>
                                     <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-30">

@@ -1,28 +1,34 @@
 "use client";
 
-import { Monitor, PenTool, Wrench, MessageSquareHeart } from "lucide-react";
+import { Monitor, PenTool, Wrench, MessageSquareHeart, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
 
 const services = [
     {
         icon: <Monitor className="w-10 h-10" />,
         title: "Web Development",
-        description: "Moderne, snelle websites die perfect werken op mobiel en desktop. Gebouwd met de nieuwste technieken voor maximale performance.",
+        description: "De architectuur van je online succes. Wij bouwen websites die niet alleen vandaag werken, maar ook klaar zijn voor morgen.",
+        href: "/diensten/web-development",
     },
     {
-        icon: <PenTool className="w-10 h-10" />,
-        title: "Design & Branding",
-        description: "Een unieke visuele identiteit die jouw verhaal vertelt. Van doordachte logo's tot een complete digitale huisstijl.",
+        icon: <Wrench className="w-10 h-10" />,
+        title: "Onderhoud & Content Support",
+        description: "Continuïteit in techniek en relevantie. Wij zorgen ervoor dat jouw platform nooit stilstaat of veroudert.",
+        href: "/diensten/onderhoud-content-support",
     },
     {
         icon: <MessageSquareHeart className="w-10 h-10" />,
         title: "Virtual Assistant",
-        description: "Wij fungeren als jouw virtuele rechterhand voor content creatie, teksten en technisch beheer. Jij de focus, wij de ondersteuning.",
+        description: "Strategische support voor de ambitieuze ondernemer. Eva fungeert als de backoffice die jouw workflow stroomlijnt.",
+        href: "/diensten/virtual-assistant",
     },
     {
-        icon: <Wrench className="w-10 h-10" />,
-        title: "Onderhoud & Support",
-        description: "Zorgeloos online blijven. Wij regelen de updates, beveiliging en optimalisatie zodat jouw site altijd in topconditie is.",
+        icon: <PenTool className="w-10 h-10" />,
+        title: "Design & Branding",
+        description: "Visuele autoriteit die blijft staan. Een merkidentiteit van Mobri is een zorgvuldig vormgegeven fundament.",
+        href: "/diensten/design",
     },
 ];
 
@@ -48,13 +54,74 @@ const itemVariants = {
     },
 };
 
+function ServiceCard({ service }: { service: typeof services[0] }) {
+    return (
+        <motion.div variants={itemVariants}>
+            <Link
+                href={service.href || "#"}
+                className="group h-[320px] [perspective:1000px] cursor-pointer block"
+            >
+                <div className="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    {/* Front Side */}
+                    <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                        <div className="w-full h-full bg-white p-8 rounded-[2.5rem] shadow-xl border border-secondary/5 flex flex-col items-center justify-center text-center transition-all group-hover:shadow-2xl">
+                            <div className="p-4 bg-primary/10 text-primary rounded-2xl mb-6 group-hover:scale-110 transition-transform">
+                                {service.icon}
+                            </div>
+                            <h3 className="text-2xl font-heading font-bold text-secondary mb-2">{service.title}</h3>
+                            <div className="w-8 h-1 bg-primary rounded-full" />
+                        </div>
+                    </div>
+
+                    {/* Back Side */}
+                    <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                        <div className="w-full h-full bg-secondary p-8 rounded-[2.5rem] shadow-xl flex flex-col items-center justify-center text-center">
+                            <h3 className="text-xl font-heading font-bold text-white mb-4">{service.title}</h3>
+                            <p className="text-white/80 text-sm leading-relaxed mb-6">
+                                {service.description}
+                            </p>
+                            <div
+                                className="px-6 py-2.5 bg-primary text-primary-foreground rounded-full text-xs font-bold shadow-lg shadow-primary/20 hover:scale-110 transition-transform"
+                            >
+                                Ontdek meer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Link>
+        </motion.div>
+    );
+}
+
+function ServiceCardMobile({ service }: { service: typeof services[0] }) {
+    return (
+        <motion.div variants={itemVariants}>
+            <Link
+                href={service.href || "#"}
+                className="bg-white p-8 rounded-[2.5rem] shadow-lg border border-secondary/5 flex flex-col active:scale-95 transition-transform"
+            >
+                <div className="p-4 bg-primary/10 text-primary rounded-2xl w-fit mb-6">
+                    {service.icon}
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-secondary mb-4">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                    {service.description}
+                </p>
+                <div className="text-primary font-bold text-sm flex items-center gap-2">
+                    Lees meer <ArrowRight className="w-4 h-4" />
+                </div>
+            </Link>
+        </motion.div>
+    );
+}
+
 export function Services() {
     return (
         <section
             id="services"
             className="py-32 bg-background relative overflow-hidden"
         >
-            {/* Ambient Background Glows - Adjusted for light theme */}
+            {/* Ambient Background Glows */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -92,38 +159,29 @@ export function Services() {
                     </motion.div>
                 </div>
 
+                {/* Desktop Grid */}
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6"
                 >
                     {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            variants={itemVariants}
-                            className="group h-full"
-                        >
-                            <div className="relative h-full p-8 rounded-[2rem] bg-white border border-secondary/5 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all duration-500 flex flex-col items-start overflow-hidden">
-                                {/* Subtle Inner Glow on Hover */}
-                                <div className="absolute -inset-px bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <ServiceCard key={index} service={service} />
+                    ))}
+                </motion.div>
 
-                                <div className="mb-8 relative">
-                                    <div className="p-4 bg-secondary/5 rounded-2xl text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner">
-                                        {service.icon}
-                                    </div>
-                                </div>
-
-                                <h3 className="text-2xl font-bold mb-4 text-secondary group-hover:text-primary transition-colors duration-300">
-                                    {service.title}
-                                </h3>
-
-                                <p className="text-muted-foreground leading-relaxed font-light text-base">
-                                    {service.description}
-                                </p>
-                            </div>
-                        </motion.div>
+                {/* Mobile Grid */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid md:hidden gap-6"
+                >
+                    {services.map((service, index) => (
+                        <ServiceCardMobile key={index} service={service} />
                     ))}
                 </motion.div>
             </div>

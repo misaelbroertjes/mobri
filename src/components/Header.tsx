@@ -22,8 +22,8 @@ export function Header() {
 
     const navLinks = [
         { name: "Home", href: "/#hero" },
-        { name: "Team", href: "/#team" },
         { name: "Diensten", href: "/#services" },
+        { name: "Team", href: "/#team" },
         { name: "Contact", href: "/#contact" },
     ];
 
@@ -51,17 +51,41 @@ export function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm font-medium text-secondary hover:text-primary transition-colors relative group/link"
-                        >
-                            {link.name}
-                            <motion.span
-                                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover/link:w-full"
-                                layoutId={`underline-${link.name}`}
-                            />
-                        </Link>
+                        <div key={link.name} className="relative group/nav-item">
+                            <Link
+                                href={link.href}
+                                className="text-sm font-medium text-secondary hover:text-primary transition-colors relative py-2 block"
+                            >
+                                {link.name}
+                                <motion.span
+                                    className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover/nav-item:w-full"
+                                    layoutId={`underline-${link.name}`}
+                                />
+                            </Link>
+
+                            {link.name === "Diensten" && (
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav-item:opacity-100 group-hover/nav-item:visible transition-all duration-300 transform scale-95 group-hover/nav-item:scale-100">
+                                    <div className="bg-white border border-secondary/5 shadow-2xl rounded-2xl p-4 w-64 grid gap-2">
+                                        <Link href="/diensten/web-development" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                            <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Web Development</p>
+                                            <p className="text-[10px] text-muted-foreground">Moderne websites</p>
+                                        </Link>
+                                        <Link href="/diensten/onderhoud-content-support" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                            <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Onderhoud & Content Support</p>
+                                            <p className="text-[10px] text-muted-foreground">Technisch beheer</p>
+                                        </Link>
+                                        <Link href="/diensten/virtual-assistant" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                            <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Virtual Assistant</p>
+                                            <p className="text-[10px] text-muted-foreground">Strategische support</p>
+                                        </Link>
+                                        <Link href="/diensten/design" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                            <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Design & Branding</p>
+                                            <p className="text-[10px] text-muted-foreground">Visuele autoriteit</p>
+                                        </Link>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     ))}
                     <motion.div
                         whileHover={{ scale: 1.05 }}
@@ -94,17 +118,28 @@ export function Header() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 right-0 bg-background border-b border-muted p-4 md:hidden flex flex-col gap-4 shadow-lg"
+                        className="absolute top-full left-0 right-0 bg-background border-b border-muted p-4 md:hidden flex flex-col gap-2 shadow-lg max-h-[80vh] overflow-y-auto"
                     >
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="text-lg font-medium py-2 border-b border-muted/50"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                {link.name}
-                            </Link>
+                            <div key={link.name} className="flex flex-col">
+                                <Link
+                                    href={link.href}
+                                    className="text-lg font-medium py-3 border-b border-muted/50 flex justify-between items-center"
+                                    onClick={() => {
+                                        if (link.name !== "Diensten") setIsMobileMenuOpen(false);
+                                    }}
+                                >
+                                    {link.name}
+                                </Link>
+                                {link.name === "Diensten" && (
+                                    <div className="grid gap-1 py-2 pl-4">
+                                        <Link href="/diensten/web-development" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
+                                        <Link href="/diensten/onderhoud-content-support" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Onderhoud & Content Support</Link>
+                                        <Link href="/diensten/virtual-assistant" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Virtual Assistant</Link>
+                                        <Link href="/diensten/design" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Design & Branding</Link>
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </motion.div>
                 )}
