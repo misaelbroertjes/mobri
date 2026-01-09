@@ -57,8 +57,8 @@ export function ContactForm() {
                                 Contact
                             </motion.span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-8 text-white leading-tight">
-                                Laten we <br />
-                                <span className="text-primary italic">samenwerken.</span>
+                                Tijd voor de <br />
+                                <span className="text-primary italic">volgende stap</span>.
                             </h2>
                             <p className="text-lg opacity-80 leading-relaxed max-w-md">
                                 Heb je een vraag, een idee, of wil je gewoon even sparren?
@@ -124,7 +124,7 @@ export function ContactForm() {
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 relative z-10">
                             <div>
                                 <h3 className="text-3xl font-heading font-bold mb-2 text-white">Stuur een bericht</h3>
-                                <p className="text-white/60 text-sm">We reageren meestal binnen 24 uur.</p>
+                                <p className="text-white/60 text-sm">We doen ons best om op werkdagen binnen 24 uur te reageren.</p>
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
@@ -140,8 +140,8 @@ export function ContactForm() {
                                     />
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Naam</label>
+                                <div className="space-y-4">
+                                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Naam</label>
                                     <input
                                         id="name"
                                         {...register("name", { required: true })}
@@ -150,8 +150,8 @@ export function ContactForm() {
                                     />
                                     {errors.name && <span className="text-primary text-[10px] font-bold uppercase ml-1">Verplicht</span>}
                                 </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Email</label>
+                                <div className="space-y-4">
+                                    <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Email</label>
                                     <input
                                         id="email"
                                         type="email"
@@ -163,8 +163,8 @@ export function ContactForm() {
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Onderwerp</label>
+                            <div className="space-y-4">
+                                <label htmlFor="subject" className="block text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Onderwerp</label>
                                 <div className="relative">
                                     <select
                                         id="subject"
@@ -183,8 +183,8 @@ export function ContactForm() {
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Bericht</label>
+                            <div className="space-y-4">
+                                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-white/40 ml-1">Bericht</label>
                                 <textarea
                                     id="message"
                                     rows={4}

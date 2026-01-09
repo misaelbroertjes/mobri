@@ -73,7 +73,7 @@ export function ProductPageContent({
                                 transition={{ delay: 0.1 }}
                                 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-secondary mb-6 leading-tight"
                             >
-                                {title}
+                                {title}<span className="text-primary">.</span>
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}

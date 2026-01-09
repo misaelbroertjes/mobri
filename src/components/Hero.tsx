@@ -77,7 +77,7 @@ export function Hero() {
                         transition={{ duration: 0.5 }}
                         className="inline-block px-4 py-2 bg-secondary text-white rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 shadow-lg shadow-secondary/10 w-fit"
                     >
-                        VIRTUAL ASSISTANCE & WEB DEVELOPMENT
+                        MODERNE DIGITALE ONDERSTEUNING
                     </motion.span>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -85,8 +85,8 @@ export function Hero() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6 text-foreground"
                     >
-                        Websites met een <br />
-                        <span className="text-primary italic">Human Touch.</span>
+                        Jouw visie, onze <br />
+                        <span className="text-primary italic">Digitale Expertise</span>.
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export function Hero() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
                     >
-                        Wij helpen kleine bedrijven en ondernemers met professionele websites en ondersteuning als Virtual Assistant. Geen gedoe, gewoon goed geregeld.
+                        Van razendsnelle websites tot strategische ondersteuning als Virtual Assistant. Wij bouwen het fundament én regelen de backoffice, zodat jij ongestoord kunt groeien.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

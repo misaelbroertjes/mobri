@@ -9,7 +9,7 @@ const services = [
     {
         icon: <Monitor className="w-10 h-10" />,
         title: "Web Development",
-        description: "De architectuur van je online succes. Wij bouwen websites die niet alleen vandaag werken, maar ook klaar zijn voor morgen.",
+        description: "Wij bouwen websites die niet alleen vandaag werken, maar ook klaar zijn voor morgen.",
         href: "/diensten/web-development",
     },
     {
@@ -27,7 +27,7 @@ const services = [
     {
         icon: <PenTool className="w-10 h-10" />,
         title: "Design & Branding",
-        description: "Visuele autoriteit die blijft staan. Een merkidentiteit van Mobri is een zorgvuldig vormgegeven fundament.",
+        description: "Jouw visie, vertaald in een krachtige visuele identiteit die staat als een huis en je doelgroep echt raakt.",
         href: "/diensten/design",
     },
 ];
@@ -143,7 +143,7 @@ export function Services() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-secondary leading-[1.1]"
                         >
-                            Alles wat je nodig hebt om <span className="text-primary italic">digitaal te groeien.</span>
+                            Alles wat je nodig hebt om <span className="text-primary italic">digitaal te groeien</span>.
                         </motion.h2>
                     </div>
                     <motion.div
@@ -154,7 +154,7 @@ export function Services() {
                         className="hidden md:block"
                     >
                         <p className="text-muted-foreground text-lg max-w-xs leading-relaxed border-l border-secondary/10 pl-8">
-                            Persoonlijke aandacht, technische perfectie en een oog voor detail.
+                            Persoonlijke aandacht, technisch vakmanschap en een oog voor detail.
                         </p>
                     </motion.div>
                 </div>

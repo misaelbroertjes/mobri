@@ -11,6 +11,7 @@ const team = [
         role: "Web & Tech Lead",
         bio: "Ik zorg dat jouw website [technisch] staat als een huis. [Snel], [veilig] en makkelijk te gebruiken.",
         image: "/images/team/misael-headshot.png",
+        imageClass: "-translate-x-[8%] translate-y-[8%]",
         icons: [
             { Icon: Code2, x: "-55%", y: "-45%", size: "w-14 h-14", delay: 0, parallax: 40, mouseStrength: 15 },
             { Icon: Terminal, x: "55%", y: "-25%", size: "w-10 h-10", delay: 0.2, parallax: -30, mouseStrength: -20 },
@@ -24,6 +25,7 @@ const team = [
         role: "Design & Virtual Assistant",
         bio: "Ik ben jouw [creatieve] en organisatorische rechterhand. Van [huisstijl] tot [workflow].",
         image: "/images/team/eva-headshot.png",
+        imageClass: "translate-y-[8%]",
         icons: [
             { Icon: Palette, x: "-50%", y: "-40%", size: "w-14 h-14", delay: 0.1, parallax: -50, mouseStrength: 25 },
             { Icon: PenTool, x: "60%", y: "20%", size: "w-10 h-10", delay: 0.3, parallax: 30, mouseStrength: -15 },
@@ -199,7 +201,7 @@ export function TeamSection() {
                                                 alt={member.name}
                                                 width={400}
                                                 height={400}
-                                                className="w-full h-full object-contain translate-y-[8%] select-none pointer-events-none drop-shadow-2xl"
+                                                className={`w-full h-full object-contain ${member.imageClass} select-none pointer-events-none drop-shadow-2xl`}
                                                 priority
                                             />
                                         </motion.div>
@@ -216,7 +218,7 @@ export function TeamSection() {
                                                 alt={member.name}
                                                 width={400}
                                                 height={400}
-                                                className="w-full h-full object-contain translate-y-[8%] select-none pointer-events-none drop-shadow-2xl"
+                                                className={`w-full h-full object-contain ${member.imageClass} select-none pointer-events-none drop-shadow-2xl`}
                                                 priority
                                             />
                                         </div>
