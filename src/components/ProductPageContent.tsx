@@ -90,12 +90,18 @@ export function ProductPageContent({
                                 transition={{ delay: 0.3 }}
                                 className="mt-10"
                             >
-                                <Link
-                                    href="/#contact"
-                                    className="inline-flex px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:shadow-primary/30 transition-all active:scale-95"
+                                <motion.div
+                                    whileHover={{ scale: 1.05, y: -2 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="inline-block"
                                 >
-                                    {ctaLabel}
-                                </Link>
+                                    <Link
+                                        href="/#contact"
+                                        className="inline-flex px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+                                    >
+                                        {ctaLabel}
+                                    </Link>
+                                </motion.div>
                             </motion.div>
                         </div>
                         <motion.div
@@ -263,13 +269,16 @@ export function ProductPageContent({
                             Ontdek hoe Mobri jou kan ontzorgen en laten groeien. Plan vandaag nog je gratis kennismaking in.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <motion.div
+                                whileHover={{ scale: 1.05, y: -4 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
                                 <Link
                                     href="/#contact"
-                                    className="px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all flex items-center gap-2"
+                                    className="px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold text-lg shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all flex items-center gap-2 group"
                                 >
                                     {ctaLabel}
-                                    <ArrowLeft className="w-5 h-5 rotate-180" />
+                                    <ArrowLeft className="w-5 h-5 rotate-180 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </motion.div>
                         </div>

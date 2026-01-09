@@ -70,47 +70,63 @@ export function Hero() {
 
             <div className="container mx-auto px-4 md:px-6 z-10 grid md:grid-cols-2 gap-12 items-center">
                 {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <span className="inline-block px-4 py-2 bg-secondary text-white rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 shadow-lg shadow-secondary/10">
+                <div className="flex flex-col">
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="inline-block px-4 py-2 bg-secondary text-white rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 shadow-lg shadow-secondary/10 w-fit"
+                    >
                         VIRTUAL ASSISTANCE & WEB DEVELOPMENT
-                    </span>
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6 text-foreground">
+                    </motion.span>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6 text-foreground"
+                    >
                         Websites met een <br />
                         <span className="text-primary italic">Human Touch.</span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
+                    >
                         Wij helpen kleine bedrijven en ondernemers met professionele websites en ondersteuning als Virtual Assistant. Geen gedoe, gewoon goed geregeld.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="flex flex-col sm:flex-row gap-4"
+                    >
                         <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
                         >
                             <Link
                                 href="/#contact"
-                                className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group w-full sm:w-auto shadow-xl shadow-primary/20 hover:shadow-primary/30"
+                                className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group w-full sm:w-auto shadow-xl shadow-primary/20 hover:shadow-primary/40"
                             >
                                 Start een project
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </motion.div>
                         <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
                         >
                             <Link
                                 href="/#services"
-                                className="px-8 py-4 bg-transparent border border-muted-foreground/30 text-foreground rounded-full font-semibold text-lg hover:bg-secondary/5 transition-all text-center block w-full sm:w-auto"
+                                className="px-8 py-4 bg-transparent border border-muted-foreground/30 text-foreground rounded-full font-semibold text-lg hover:bg-secondary/5 transition-all text-center block w-full sm:w-auto hover:border-primary/50"
                             >
                                 Onze diensten
                             </Link>
                         </motion.div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
 
                 {/* Visual Content - Hidden on Mobile */}
                 <motion.div
