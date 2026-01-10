@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 import Image from "next/image";
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,6 +28,72 @@ export function Header() {
         { name: "Team", href: "/#team" },
         { name: "Contact", href: "/#contact" },
     ];
+
+    // Smooth scroll function that updates the hash
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        // Only handle internal scrolling if we're on the homepage
+        if (href.startsWith("/#") && pathname === "/") {
+            const id = href.replace("/#", "");
+            const element = document.getElementById(id);
+            if (element) {
+                e.preventDefault();
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                // Update hash without jumping
+                window.history.pushState(null, "", href);
+                setIsMobileMenuOpen(false);
+            }
+        }
+    };
+
+    // Update active hash on scroll
+    useEffect(() => {
+        if (pathname !== "/") return;
+
+        const sections = navLinks.map(link => link.href.replace("/#", ""));
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px', // Trigger when section is in the middle of viewport
+            threshold: 0
+        };
+
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const newHash = id === "hero" ? "/" : `/#${id}`;
+                    if (window.location.hash !== `#${id}` && (id !== "hero" || window.location.hash !== "")) {
+                        window.history.replaceState(null, "", newHash);
+                    }
+                }
+            });
+
+            // Special case for scrolling to top
+            if (window.scrollY < 100) {
+                if (window.location.hash !== "" && pathname === "/") {
+                    window.history.replaceState(null, "", "/");
+                }
+            }
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, [pathname]);
 
     return (
         <header
@@ -54,6 +122,7 @@ export function Header() {
                         <div key={link.name} className="relative group/nav-item">
                             <Link
                                 href={link.href}
+                                onClick={(e) => scrollToSection(e, link.href)}
                                 className="text-sm font-medium text-secondary hover:text-primary transition-colors relative py-2 block"
                             >
                                 {link.name}
@@ -93,6 +162,7 @@ export function Header() {
                     >
                         <Link
                             href="/#contact"
+                            onClick={(e) => scrollToSection(e, "/#contact")}
                             className="px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 block"
                         >
                             Start Project
@@ -124,10 +194,12 @@ export function Header() {
                             <div key={link.name} className="flex flex-col">
                                 <Link
                                     href={link.href}
-                                    className="text-lg font-medium py-3 border-b border-muted/50 flex justify-between items-center"
-                                    onClick={() => {
-                                        if (link.name !== "Diensten") setIsMobileMenuOpen(false);
+                                    onClick={(e) => {
+                                        if (link.name !== "Diensten") {
+                                            scrollToSection(e, link.href);
+                                        }
                                     }}
+                                    className="text-lg font-medium py-3 border-b border-muted/50 flex justify-between items-center"
                                 >
                                     {link.name}
                                 </Link>
