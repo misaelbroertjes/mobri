@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Privacyverklaring | Mobri",
     description: "Privacyverklaring van mobri.nl",
     alternates: {
-        canonical: "https://www.mobri.nl/privacy",
+        canonical: "https://www.mobri.nl/privacy/",
     },
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Virtual Assistant Services | Mobri",
     description: "Strategische backoffice ondersteuning voor jouw bedrijf. Van operationele ontzorging tot proactief meedenken over jouw groei. Jouw partner in succes.",
     alternates: {
-        canonical: "https://www.mobri.nl/diensten/virtual-assistant",
+        canonical: "https://www.mobri.nl/diensten/virtual-assistant/",
     },
 };
 

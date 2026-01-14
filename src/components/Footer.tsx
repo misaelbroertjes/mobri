@@ -49,12 +49,12 @@ export function Footer() {
                         <ul className="space-y-2 text-muted-foreground text-sm">
                             <li>KVK: 66470188</li>
                             <li>
-                                <Link href="/voorwaarden" className="hover:text-primary transition-colors">
+                                <Link href="/voorwaarden/" className="hover:text-primary transition-colors">
                                     Algemene Voorwaarden
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/privacy" className="hover:text-primary transition-colors">
+                                <Link href="/privacy/" className="hover:text-primary transition-colors">
                                     Privacy Verklaring
                                 </Link>
                             </li>

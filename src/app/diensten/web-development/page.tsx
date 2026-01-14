@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Web Development | Mobri",
     description: "Wij bouwen moderne, snelle en conversie-gerichte websites. Van maatwerk Next.js oplossingen tot flexibele WordPress systemen.",
     alternates: {
-        canonical: "https://www.mobri.nl/diensten/web-development",
+        canonical: "https://www.mobri.nl/diensten/web-development/",
     },
 };
 

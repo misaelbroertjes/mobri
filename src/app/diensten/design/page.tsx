@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Design & Branding | Mobri",
     description: "Krachtige visuele identiteiten die jouw verhaal vertellen. Van logo-ontwerp tot complete brand identity en UI/UX design.",
     alternates: {
-        canonical: "https://www.mobri.nl/diensten/design",
+        canonical: "https://www.mobri.nl/diensten/design/",
     },
 };
 

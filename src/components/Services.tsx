@@ -10,25 +10,25 @@ const services = [
         icon: <Monitor className="w-10 h-10" />,
         title: "Web Development",
         description: "Wij bouwen websites die niet alleen vandaag werken, maar ook klaar zijn voor morgen.",
-        href: "/diensten/web-development",
+        href: "/diensten/web-development/",
     },
     {
         icon: <Wrench className="w-10 h-10" />,
         title: "Onderhoud & Content Support",
         description: "Continuïteit in techniek en relevantie. Wij zorgen ervoor dat jouw platform nooit stilstaat of veroudert.",
-        href: "/diensten/onderhoud-content-support",
+        href: "/diensten/onderhoud-content-support/",
     },
     {
         icon: <MessageSquareHeart className="w-10 h-10" />,
         title: "Virtual Assistant",
         description: "Strategische support voor de ambitieuze ondernemer. Eva fungeert als de backoffice die jouw workflow stroomlijnt.",
-        href: "/diensten/virtual-assistant",
+        href: "/diensten/virtual-assistant/",
     },
     {
         icon: <PenTool className="w-10 h-10" />,
         title: "Design & Branding",
         description: "Jouw visie, vertaald in een krachtige visuele identiteit die staat als een huis en je doelgroep echt raakt.",
-        href: "/diensten/design",
+        href: "/diensten/design/",
     },
 ];
 

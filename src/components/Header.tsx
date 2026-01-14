@@ -135,19 +135,19 @@ export function Header() {
                             {link.name === "Diensten" && (
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav-item:opacity-100 group-hover/nav-item:visible transition-all duration-300 transform scale-95 group-hover/nav-item:scale-100">
                                     <div className="bg-white border border-secondary/5 shadow-2xl rounded-2xl p-4 w-64 grid gap-2">
-                                        <Link href="/diensten/web-development" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                        <Link href="/diensten/web-development/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
                                             <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Web Development</p>
                                             <p className="text-[10px] text-muted-foreground">Moderne websites</p>
                                         </Link>
-                                        <Link href="/diensten/onderhoud-content-support" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                        <Link href="/diensten/onderhoud-content-support/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
                                             <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Onderhoud & Content Support</p>
                                             <p className="text-[10px] text-muted-foreground">Technisch beheer</p>
                                         </Link>
-                                        <Link href="/diensten/virtual-assistant" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                        <Link href="/diensten/virtual-assistant/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
                                             <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Virtual Assistant</p>
                                             <p className="text-[10px] text-muted-foreground">Strategische support</p>
                                         </Link>
-                                        <Link href="/diensten/design" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                        <Link href="/diensten/design/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
                                             <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Design & Branding</p>
                                             <p className="text-[10px] text-muted-foreground">Visuele autoriteit</p>
                                         </Link>
@@ -205,10 +205,10 @@ export function Header() {
                                 </Link>
                                 {link.name === "Diensten" && (
                                     <div className="grid gap-1 py-2 pl-4">
-                                        <Link href="/diensten/web-development" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
-                                        <Link href="/diensten/onderhoud-content-support" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Onderhoud & Content Support</Link>
-                                        <Link href="/diensten/virtual-assistant" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Virtual Assistant</Link>
-                                        <Link href="/diensten/design" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Design & Branding</Link>
+                                        <Link href="/diensten/web-development/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
+                                        <Link href="/diensten/onderhoud-content-support/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Onderhoud & Content Support</Link>
+                                        <Link href="/diensten/virtual-assistant/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Virtual Assistant</Link>
+                                        <Link href="/diensten/design/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Design & Branding</Link>
                                     </div>
                                 )}
                             </div>

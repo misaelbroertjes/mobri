@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mobri | Websites & Virtual Assistant",
     description: "Professionele websites en Virtual Assistant services met een persoonlijke touch.",
-    url: "https://www.mobri.nl",
+    url: "https://www.mobri.nl/",
     siteName: "Mobri",
     images: [
       {

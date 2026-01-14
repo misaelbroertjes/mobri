@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Onderhoud & Content Support | Mobri",
     description: "Wij zorgen dat jouw website technisch up-to-date blijft en je content altijd fris en relevant is. Zorgeloos beheer van jouw online platform.",
     alternates: {
-        canonical: "https://www.mobri.nl/diensten/onderhoud-content-support",
+        canonical: "https://www.mobri.nl/diensten/onderhoud-content-support/",
     },
 };
 
