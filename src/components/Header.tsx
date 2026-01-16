@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import Image from "next/image";
+import { TextFlip } from "./TextFlip";
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -112,7 +113,8 @@ export function Header() {
                         className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
                     />
                     <div className="text-2xl font-heading font-bold text-secondary transition-colors tracking-tight">
-                        Mobri<span className="text-primary">.</span>
+                        <TextFlip text="Mobri" />
+                        <span className="text-primary">.</span>
                     </div>
                 </Link>
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LinkedinIcon } from "lucide-react";
 
 import Image from "next/image";
+import { TextFlip } from "./TextFlip";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -22,7 +23,8 @@ export function Footer() {
                                 />
                             </div>
                             <div className="text-2xl font-heading font-bold text-white tracking-tight">
-                                Mobri<span className="text-primary">.</span>
+                                <TextFlip text="Mobri" />
+                                <span className="text-primary">.</span>
                             </div>
                         </Link>
                         <p className="text-white/60 text-sm leading-relaxed max-w-xs">
