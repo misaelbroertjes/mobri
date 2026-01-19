@@ -19,9 +19,9 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
 - [x] **Stap 2.2: Terminologie**
     - [x] Rebranding naar "Virtual Assistant" (overal doorgevoerd)
 - [ ] **Stap 2.3: Informatievoorziening**
-    - [ ] "Onze Werkwijze" (1-2-3 stappenplan)
-    - [ ] FAQ Sectie (Veelgestelde vragen)
-    - [ ] Portfolio/Case study sectie (3 projecten)
+    - [x] "Onze Werkwijze" (Geïntegreerd op dienst-pagina's)
+    - [x] FAQ Sectie (Geïntegreerd op dienst-pagina's)
+    - [ ] (Later) Portfolio/Case study sectie (Wachten op eerste afgeronde projecten)
 
 ## ✅ Fase 3: UX & Design (Gereed)
 - [x] **Stap 3.1: Interactie**
@@ -52,7 +52,7 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
     - [x] Sitemap.xml
     - [x] Mobiele metadata (Viewport theme-color)
 - [x] **Stap 5.2: Content SEO**
-    - [ ] Landingspagina teksten voor regio Meppel
+    - [x] Landingspagina teksten voor regio Meppel (Gereed)
     - [x] Alt-tags optimalisatie check
 - [x] **Stap 5.3: Conversie & Trust**
     - [x] WhatsApp-knop integratie (Gereed)
