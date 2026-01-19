@@ -47,6 +47,7 @@ export const metadata: Metadata = {
 
 import Script from "next/script";
 import { CookieBanner } from "@/components/CookieBanner";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export default function RootLayout({
   children,
@@ -119,6 +120,7 @@ export default function RootLayout({
           outfit.variable,
           "antialiased min-h-screen font-sans"
         )}
+        suppressHydrationWarning
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -131,6 +133,7 @@ export default function RootLayout({
         </noscript>
 
         {children}
+        <WhatsAppButton />
         <CookieBanner />
       </body>
     </html>

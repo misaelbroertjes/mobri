@@ -54,7 +54,7 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
 - [x] **Stap 5.2: Content SEO**
     - [ ] Landingspagina teksten voor regio Meppel
     - [x] Alt-tags optimalisatie check
-- [ ] **Stap 5.3: Conversie & Trust**
-    - [ ] WhatsApp-knop integratie
+- [x] **Stap 5.3: Conversie & Trust**
+    - [x] WhatsApp-knop integratie (Gereed)
     - [x] Bedankpagina na contactformulier (Gereed & Gekoppeld)
     - [ ] (Later) Testimonials / Google Reviews widget (Zodra eerste reviews binnen zijn)

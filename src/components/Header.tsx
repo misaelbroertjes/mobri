@@ -18,11 +18,14 @@ export function Header() {
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = "hidden";
+            document.body.classList.add("mobile-menu-open");
         } else {
             document.body.style.overflow = "unset";
+            document.body.classList.remove("mobile-menu-open");
         }
         return () => {
             document.body.style.overflow = "unset";
+            document.body.classList.remove("mobile-menu-open");
         };
     }, [isMobileMenuOpen]);
 
@@ -202,7 +205,8 @@ export function Header() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 z-[60] bg-background flex flex-col md:hidden overflow-hidden"
+                        className="fixed inset-0 z-[100] bg-background flex flex-col md:hidden overflow-hidden shadow-2xl"
+                        style={{ backgroundColor: '#FDFBF7' }}
                     >
                         {/* Mobile Menu Header */}
                         <div className="flex items-center justify-between p-6 border-b border-secondary/5">
