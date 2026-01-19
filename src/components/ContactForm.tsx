@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Send, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -198,16 +198,52 @@ export function ContactForm() {
                             </div>
 
                             <div className="pt-2">
-                                <motion.button
-                                    whileHover={{ scale: 1.02, y: -2 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full py-5 bg-primary text-primary-foreground rounded-2xl font-bold font-heading hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 group disabled:opacity-70"
+                                <motion.div
+                                    initial="initial"
+                                    whileHover="hover"
+                                    whileTap="tap"
+                                    className="relative group cursor-pointer"
                                 >
-                                    {isSubmitting ? "Verzenden..." : "Verstuur Bericht"}
-                                    {!isSubmitting && <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-                                </motion.button>
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="relative w-full inline-flex items-center justify-center py-5 bg-primary text-primary-foreground rounded-2xl font-bold font-heading shadow-xl shadow-primary/20 overflow-hidden transition-all duration-500 group-hover:shadow-primary/50 disabled:opacity-70"
+                                    >
+                                        {/* Background inversion */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-primary"
+                                            variants={{
+                                                initial: { backgroundColor: "var(--primary)" },
+                                                hover: { backgroundColor: "#ffffff" }
+                                            }}
+                                            transition={{ duration: 0.5 }}
+                                        />
+
+                                        {/* Shimmer Effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+
+                                        <motion.span
+                                            className="relative z-10 flex items-center gap-3 whitespace-nowrap"
+                                            variants={{
+                                                initial: { letterSpacing: "0em", color: "var(--primary-foreground)" },
+                                                hover: { letterSpacing: "0.05em", color: "var(--secondary)" }
+                                            }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
+                                        >
+                                            {isSubmitting ? "Verzenden..." : "Verstuur Bericht"}
+                                            {/* Semantic Arrow/Send Transition */}
+                                            {!isSubmitting && (
+                                                <div className="relative overflow-hidden w-6 h-6 shrink-0">
+                                                    <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 -translate-x-8 group-hover:translate-x-0" />
+                                                    <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 translate-x-0 group-hover:translate-x-8" />
+                                                </div>
+                                            )}
+                                        </motion.span>
+                                    </button>
+
+                                    {/* Strong Liquid Glow */}
+                                    <div className="absolute inset-x-4 -bottom-2 h-8 bg-primary/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                </motion.div>
                             </div>
 
                             {/* Status Messages */}

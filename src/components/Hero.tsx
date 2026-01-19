@@ -96,36 +96,82 @@ export function Hero() {
                     >
                         Van razendsnelle websites tot strategische ondersteuning als Virtual Assistant. Wij bouwen het fundament én regelen de backoffice, zodat jij ongestoord kunt groeien.
                     </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row gap-4"
-                    >
-                        <motion.div
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Link
-                                href="/#contact"
-                                className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group w-full sm:w-auto shadow-xl shadow-primary/20 hover:shadow-primary/40"
+                    <div className="flex flex-col gap-8 mt-10">
+                        <div className="flex flex-col sm:flex-row gap-6 mt-10">
+                            {/* Primary CTA: Start een project */}
+                            <motion.div
+                                initial="initial"
+                                whileHover="hover"
+                                whileTap="tap"
+                                className="relative group cursor-pointer"
                             >
-                                Start een project
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Link
-                                href="/#services"
-                                className="px-8 py-4 bg-transparent border border-muted-foreground/30 text-foreground rounded-full font-semibold text-lg hover:bg-secondary/5 transition-all text-center block w-full sm:w-auto hover:border-primary/50"
+                                <Link
+                                    href="/#contact"
+                                    className="relative inline-flex items-center justify-center min-w-[220px] px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold shadow-2xl shadow-primary/30 overflow-hidden transition-all duration-500 group-hover:shadow-primary/50"
+                                >
+                                    {/* Background inversion */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-primary"
+                                        variants={{
+                                            initial: { backgroundColor: "var(--primary)" },
+                                            hover: { backgroundColor: "var(--secondary)" }
+                                        }}
+                                        transition={{ duration: 0.5 }}
+                                    />
+
+                                    {/* Shimmer Effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+
+                                    <motion.span
+                                        className="relative z-10 flex items-center gap-2 whitespace-nowrap"
+                                        variants={{
+                                            initial: { letterSpacing: "0em", color: "var(--primary-foreground)" },
+                                            hover: { letterSpacing: "0.05em", color: "var(--primary)" }
+                                        }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                    >
+                                        Start een project
+                                        {/* Semantic Arrow */}
+                                        <div className="relative overflow-hidden w-6 h-6 shrink-0">
+                                            <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 -translate-x-8 group-hover:translate-x-0" />
+                                            <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 translate-x-0 group-hover:translate-x-8" />
+                                        </div>
+                                    </motion.span>
+                                </Link>
+
+                                {/* Strong Liquid Glow */}
+                                <div className="absolute inset-x-4 -bottom-2 h-8 bg-primary/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            </motion.div>
+
+                            {/* Secondary CTA: Onze diensten */}
+                            <motion.div
+                                initial="initial"
+                                whileHover="hover"
+                                whileTap="tap"
+                                className="relative group cursor-pointer"
                             >
-                                Onze diensten
-                            </Link>
-                        </motion.div>
-                    </motion.div>
+                                <Link
+                                    href="/#services"
+                                    className="relative inline-flex items-center justify-center min-w-[220px] px-10 py-5 bg-transparent border-2 border-muted-foreground/30 text-foreground rounded-full font-bold transition-all duration-500 hover:border-primary/60 hover:bg-primary/15 h-full"
+                                >
+                                    <motion.span
+                                        className="relative z-10 flex items-center gap-2 whitespace-nowrap"
+                                        variants={{
+                                            initial: { letterSpacing: "0em" },
+                                            hover: { letterSpacing: "0.05em" }
+                                        }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                    >
+                                        Onze diensten
+                                        <div className="relative overflow-hidden w-6 h-6 shrink-0">
+                                            <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 -translate-x-8 group-hover:translate-x-0" />
+                                            <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 translate-x-0 group-hover:translate-x-8" />
+                                        </div>
+                                    </motion.span>
+                                </Link>
+                            </motion.div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Visual Content - Hidden on Mobile */}

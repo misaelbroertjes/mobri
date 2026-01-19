@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, CheckCircle2, ChevronDown, Plus } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, Plus } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Header } from "./Header";
@@ -91,16 +91,47 @@ export function ProductPageContent({
                                 className="mt-10"
                             >
                                 <motion.div
-                                    whileHover={{ scale: 1.05, y: -2 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="inline-block"
+                                    initial="initial"
+                                    whileHover="hover"
+                                    whileTap="tap"
+                                    className="relative group cursor-pointer inline-block"
                                 >
                                     <Link
                                         href="/#contact"
-                                        className="inline-flex px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+                                        className="relative inline-flex items-center justify-center min-w-[220px] px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold shadow-2xl shadow-primary/30 overflow-hidden transition-all duration-500 group-hover:shadow-primary/50"
                                     >
-                                        {ctaLabel}
+                                        {/* Background inversion (Yellow to Green for light background) */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-primary"
+                                            variants={{
+                                                initial: { backgroundColor: "var(--primary)" },
+                                                hover: { backgroundColor: "var(--secondary)" }
+                                            }}
+                                            transition={{ duration: 0.5 }}
+                                        />
+
+                                        {/* Shimmer Effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+
+                                        <motion.span
+                                            className="relative z-10 flex items-center gap-2 whitespace-nowrap"
+                                            variants={{
+                                                initial: { letterSpacing: "0em", color: "var(--primary-foreground)" },
+                                                hover: { letterSpacing: "0.05em", color: "var(--primary)" }
+                                            }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
+                                        >
+                                            {ctaLabel}
+                                            {/* Semantic Arrow */}
+                                            <div className="relative overflow-hidden w-6 h-6 shrink-0">
+                                                <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 -translate-x-8 group-hover:translate-x-0" />
+                                                <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 translate-x-0 group-hover:translate-x-8" />
+                                            </div>
+                                        </motion.span>
                                     </Link>
+
+                                    {/* Strong Liquid Glow */}
+                                    <div className="absolute inset-x-4 -bottom-2 h-8 bg-primary/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                                 </motion.div>
                             </motion.div>
                         </div>
@@ -270,16 +301,47 @@ export function ProductPageContent({
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                             <motion.div
-                                whileHover={{ scale: 1.05, y: -4 }}
-                                whileTap={{ scale: 0.95 }}
+                                initial="initial"
+                                whileHover="hover"
+                                whileTap="tap"
+                                className="relative group cursor-pointer"
                             >
                                 <Link
                                     href="/#contact"
-                                    className="px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold text-lg shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all flex items-center gap-2 group"
+                                    className="relative inline-flex items-center justify-center min-w-[220px] px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold text-lg shadow-2xl shadow-primary/30 overflow-hidden transition-all duration-500 group-hover:shadow-primary/50"
                                 >
-                                    {ctaLabel}
-                                    <ArrowLeft className="w-5 h-5 rotate-180 group-hover:translate-x-1 transition-transform" />
+                                    {/* Background inversion */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-primary"
+                                        variants={{
+                                            initial: { backgroundColor: "var(--primary)" },
+                                            hover: { backgroundColor: "#ffffff" }
+                                        }}
+                                        transition={{ duration: 0.5 }}
+                                    />
+
+                                    {/* Shimmer Effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+
+                                    <motion.span
+                                        className="relative z-10 flex items-center gap-2 whitespace-nowrap"
+                                        variants={{
+                                            initial: { letterSpacing: "0em", color: "var(--primary-foreground)" },
+                                            hover: { letterSpacing: "0.05em", color: "var(--secondary)" }
+                                        }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                    >
+                                        {ctaLabel}
+                                        {/* Semantic Arrow */}
+                                        <div className="relative overflow-hidden w-6 h-6 shrink-0">
+                                            <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 -translate-x-8 group-hover:translate-x-0" />
+                                            <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 translate-x-0 group-hover:translate-x-8" />
+                                        </div>
+                                    </motion.span>
                                 </Link>
+
+                                {/* Strong Liquid Glow */}
+                                <div className="absolute inset-x-4 -bottom-2 h-8 bg-primary/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                             </motion.div>
                         </div>
                     </motion.div>
