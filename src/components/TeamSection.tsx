@@ -198,7 +198,7 @@ export function TeamSection() {
                                         >
                                             <Image
                                                 src={member.image}
-                                                alt={member.name}
+                                                alt={`Portretfoto van ${member.name} - ${member.role} bij Mobri`}
                                                 width={400}
                                                 height={400}
                                                 className={`w-full h-full object-contain ${member.imageClass} select-none pointer-events-none drop-shadow-2xl`}
@@ -215,7 +215,7 @@ export function TeamSection() {
                                         >
                                             <Image
                                                 src={member.image}
-                                                alt={member.name}
+                                                alt={`Portretfoto van ${member.name} - ${member.role} bij Mobri`}
                                                 width={400}
                                                 height={400}
                                                 className={`w-full h-full object-contain ${member.imageClass} select-none pointer-events-none drop-shadow-2xl`}
@@ -265,7 +265,7 @@ export function TeamSection() {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }

@@ -17,6 +17,7 @@ export default function DesignPage() {
             subtitle="Visuele Autoriteit"
             intro="Een merk is meer dan een logo. Het is het gevoel dat je achterlaat. Wij vertalen jouw visie naar een krachtige identiteit die herkenbaar en tijdloos is."
             image="/images/services/design.png"
+            imageAlt="Mobri Design & Branding - Visuele identiteit en merkontwikkeling"
             icon={<PenTool className="w-16 h-16" />}
             sections={[
                 {

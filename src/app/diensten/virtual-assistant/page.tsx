@@ -17,6 +17,7 @@ export default function VirtualAssistantPage() {
             subtitle="Strategische Ondersteuning"
             intro="Fungeer als de strategische backoffice van je bedrijf. Van het overnemen van je dagelijkse to-do's tot het meedenken over je groei, wij pakken de taken op waar jij geen tijd voor hebt."
             image="/images/services/virtual-assistant.png"
+            imageAlt="Mobri Virtual Assistant - Strategische en operationele ondersteuning voor ondernemers"
             icon={<MessageSquareHeart className="w-16 h-16" />}
             sections={[
                 {

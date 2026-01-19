@@ -120,7 +120,7 @@ export function Header() {
                 <Link href="/" className="flex items-center gap-3 group">
                     <img
                         src="/logo.png"
-                        alt="Mobri Logo"
+                        alt="Mobri Logo - Websites & Virtual Assistant"
                         className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
                     />
                     <div className="text-2xl font-heading font-bold text-secondary transition-colors tracking-tight">
@@ -209,7 +209,7 @@ export function Header() {
                             <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
                                 <img
                                     src="/logo.png"
-                                    alt="Mobri Logo"
+                                    alt="Mobri Logo - Websites & Virtual Assistant"
                                     className="w-8 h-8 object-contain"
                                 />
                                 <div className="text-xl font-heading font-bold text-secondary tracking-tight">

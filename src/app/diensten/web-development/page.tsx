@@ -17,6 +17,7 @@ export default function WebDevelopmentPage() {
             subtitle="Moderne Digitale Expertise"
             intro="Wij bouwen niet zomaar websites. Wij creëren digitale fundamenten die schaalbaar, razendsnel en conversie-gericht zijn. Van complexe webapplicaties tot strakke bedrijfsportfolio's."
             image="/images/services/web-development.png"
+            imageAlt="Mobri Web Development - Op maat gemaakte, snelle websites"
             icon={<Monitor className="w-16 h-16" />}
             sections={[
                 {

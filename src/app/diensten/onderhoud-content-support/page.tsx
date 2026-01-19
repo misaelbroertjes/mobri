@@ -17,6 +17,7 @@ export default function OnderhoudPage() {
             subtitle="Continuïteit & Relevantie"
             intro="Een website is nooit 'klaar'. Wij zorgen dat jouw platform technisch up-to-date blijft en dat je content altijd fris en relevant is, zonder dat jij er omkijken naar hebt."
             image="/images/services/onderhoud.png"
+            imageAlt="Mobri Onderhoud & Content Support - Technisch beheer en website actualisatie"
             icon={<Wrench className="w-16 h-16" />}
             sections={[
                 {

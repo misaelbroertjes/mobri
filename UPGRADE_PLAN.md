@@ -51,9 +51,9 @@ Dit is het officiële stappenplan voor de verdere professionalisering van Mobri.
     - [x] Schema.org (LocalBusiness data)
     - [x] Sitemap.xml
     - [x] Mobiele metadata (Viewport theme-color)
-- [ ] **Stap 5.2: Content SEO**
+- [x] **Stap 5.2: Content SEO**
     - [ ] Landingspagina teksten voor regio Meppel
-    - [ ] Alt-tags optimalisatie check
+    - [x] Alt-tags optimalisatie check
 - [ ] **Stap 5.3: Conversie & Trust**
     - [ ] WhatsApp-knop integratie
     - [x] Bedankpagina na contactformulier (Gereed & Gekoppeld)

@@ -18,7 +18,7 @@ export function Footer() {
                             <div className="relative w-11 h-11 flex items-center justify-center rounded-2xl bg-white/10 group-hover:scale-105 transition-all duration-300 shadow-sm border border-white/5">
                                 <img
                                     src="/logo.png"
-                                    alt="Mobri Logo"
+                                    alt="Mobri Logo - Websites & Virtual Assistant"
                                     className="w-7 h-7 object-contain"
                                 />
                             </div>

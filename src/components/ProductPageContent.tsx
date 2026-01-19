@@ -27,6 +27,7 @@ interface ProductPageContentProps {
     }[];
     icon: React.ReactNode;
     ctaLabel?: string;
+    imageAlt?: string;
 }
 
 export function ProductPageContent({
@@ -38,7 +39,8 @@ export function ProductPageContent({
     steps,
     faqs,
     icon,
-    ctaLabel = "Start een project"
+    ctaLabel = "Start een project",
+    imageAlt,
 }: ProductPageContentProps) {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -145,7 +147,7 @@ export function ProductPageContent({
                                 <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/50">
                                     <img
                                         src={image}
-                                        alt={title}
+                                        alt={imageAlt || `Afbeelding voor de Mobri dienst: ${title}`}
                                         className="w-full h-full object-cover"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-transparent pointer-events-none" />
