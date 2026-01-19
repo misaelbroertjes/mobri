@@ -16,6 +16,17 @@ export function Header() {
     const pathname = usePathname();
 
     useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isMobileMenuOpen]);
+
+    useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
@@ -187,34 +198,91 @@ export function Header() {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 right-0 bg-background border-b border-muted p-4 md:hidden flex flex-col gap-2 shadow-lg max-h-[80vh] overflow-y-auto"
+                        initial={{ opacity: 0, x: "100%" }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: "100%" }}
+                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-[60] bg-background flex flex-col md:hidden overflow-hidden"
                     >
-                        {navLinks.map((link) => (
-                            <div key={link.name} className="flex flex-col">
-                                <Link
-                                    href={link.href}
-                                    onClick={(e) => {
-                                        if (link.name !== "Diensten") {
-                                            scrollToSection(e, link.href);
-                                        }
-                                    }}
-                                    className="text-lg font-medium py-3 border-b border-muted/50 flex justify-between items-center"
+                        {/* Mobile Menu Header */}
+                        <div className="flex items-center justify-between p-6 border-b border-secondary/5">
+                            <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+                                <img
+                                    src="/logo.png"
+                                    alt="Mobri Logo"
+                                    className="w-8 h-8 object-contain"
+                                />
+                                <div className="text-xl font-heading font-bold text-secondary tracking-tight">
+                                    Mobri<span className="text-primary">.</span>
+                                </div>
+                            </Link>
+                            <button
+                                className="p-2 text-secondary hover:text-primary transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                aria-label="Sluit menu"
+                            >
+                                <X size={28} />
+                            </button>
+                        </div>
+
+                        {/* Mobile Menu Links */}
+                        <div className="flex-1 overflow-y-auto py-8 px-8 flex flex-col items-center justify-center text-center">
+                            <div className="w-full max-w-sm flex flex-col gap-5">
+                                {navLinks.map((link, index) => (
+                                    <motion.div
+                                        key={link.name}
+                                        initial={{ opacity: 0, y: 15 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 + index * 0.1 }}
+                                        className="w-full"
+                                    >
+                                        {link.name === "Diensten" ? (
+                                            <div className="flex flex-col gap-3">
+                                                <span className="text-xl font-bold text-secondary">{link.name}</span>
+                                                <div className="grid gap-3 py-1">
+                                                    <Link href="/diensten/web-development/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
+                                                    <Link href="/diensten/onderhoud-content-support/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Onderhoud & Content Support</Link>
+                                                    <Link href="/diensten/virtual-assistant/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Virtual Assistant</Link>
+                                                    <Link href="/diensten/design/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Design & Branding</Link>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <Link
+                                                href={link.href}
+                                                onClick={(e) => {
+                                                    scrollToSection(e, link.href);
+                                                    setIsMobileMenuOpen(false);
+                                                }}
+                                                className="text-2xl font-bold text-secondary hover:text-primary transition-colors block py-1"
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        )}
+                                        {index < navLinks.length - 1 && (
+                                            <div className="h-px w-8 bg-primary/20 mx-auto mt-5" />
+                                        )}
+                                    </motion.div>
+                                ))}
+
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.5 }}
+                                    className="mt-6"
                                 >
-                                    {link.name}
-                                </Link>
-                                {link.name === "Diensten" && (
-                                    <div className="grid gap-1 py-2 pl-4">
-                                        <Link href="/diensten/web-development/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
-                                        <Link href="/diensten/onderhoud-content-support/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Onderhoud & Content Support</Link>
-                                        <Link href="/diensten/virtual-assistant/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Virtual Assistant</Link>
-                                        <Link href="/diensten/design/" className="py-2 text-sm text-muted-foreground" onClick={() => setIsMobileMenuOpen(false)}>Design & Branding</Link>
-                                    </div>
-                                )}
+                                    <Link
+                                        href="/#contact"
+                                        onClick={(e) => {
+                                            scrollToSection(e, "/#contact");
+                                            setIsMobileMenuOpen(false);
+                                        }}
+                                        className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                                    >
+                                        Start Project
+                                    </Link>
+                                </motion.div>
                             </div>
-                        ))}
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
