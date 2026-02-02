@@ -40,7 +40,7 @@ export function Footer() {
                     <div className="space-y-4">
                         <h4 className="font-bold text-foreground">Contact</h4>
                         <ul className="space-y-2 text-muted-foreground text-sm">
-                            <li>Bolsterturf 2, 7942 MC <Link href="/webdesign-meppel" className="hover:text-primary transition-colors">Meppel</Link></li>
+                            <li>Bolsterturf 2, 7942 MC <Link href="/webdesign-meppel/" className="hover:text-primary transition-colors">Meppel</Link></li>
                             <li><a href="tel:0638125176" className="hover:text-primary">06-38125176</a></li>
                             <li><a href="mailto:info@mobri.nl" className="hover:text-primary">info@mobri.nl</a></li>
                         </ul>

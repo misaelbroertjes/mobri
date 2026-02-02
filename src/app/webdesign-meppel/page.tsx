@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: 'Webdesign Meppel & Virtual Assistant | Lokaal & Persoonlijk | Mobri',
     description: 'Op zoek naar webdesign in Meppel? Mobri bouwt professionele websites en biedt Virtual Assistant ondersteuning. Gewoon, bij jou om de hoek. Plan een kennismaking.',
     alternates: {
-        canonical: 'https://mobri.nl/webdesign-meppel'
+        canonical: 'https://www.mobri.nl/webdesign-meppel/'
     }
 };
 
@@ -14,8 +14,8 @@ export default function WebdesignMeppelPage() {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         'name': 'Mobri',
-        'image': 'https://mobri.nl/opengraph-image.png',
-        'url': 'https://mobri.nl/webdesign-meppel',
+        'image': 'https://www.mobri.nl/opengraph-image.png',
+        'url': 'https://www.mobri.nl/webdesign-meppel/',
         'telephone': '06-38125176',
         'email': 'info@mobri.nl',
         'address': {
