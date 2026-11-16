@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.mobri.nl/diensten/virtual-assistant/",
     },
+    openGraph: {
+        title: "Virtual Assistant Services | Mobri",
+        description: "Strategische backoffice ondersteuning voor jouw bedrijf. Van operationele ontzorging tot proactief meedenken over jouw groei.",
+        url: "https://www.mobri.nl/diensten/virtual-assistant/",
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Virtual Assistant" }],
+    },
 };
 
 export default function VirtualAssistantPage() {
@@ -16,8 +22,9 @@ export default function VirtualAssistantPage() {
             title="Virtual Assistant"
             subtitle="Strategische Ondersteuning"
             intro="Fungeer als de strategische backoffice van je bedrijf. Van het overnemen van je dagelijkse to-do's tot het meedenken over je groei, wij pakken de taken op waar jij geen tijd voor hebt."
-            image="/images/services/virtual-assistant.png"
+            image="/images/services/virtual-assistant.webp"
             imageAlt="Mobri Virtual Assistant - Strategische en operationele ondersteuning voor ondernemers"
+            subjectKey="virtual-assistant"
             icon={<MessageSquareHeart className="w-16 h-16" />}
             sections={[
                 {

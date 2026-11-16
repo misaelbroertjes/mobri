@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.mobri.nl/diensten/onderhoud-content-support/",
     },
+    openGraph: {
+        title: "Onderhoud & Content Support | Mobri",
+        description: "Wij zorgen dat jouw website technisch up-to-date blijft en je content altijd fris en relevant is. Zorgeloos beheer van jouw online platform.",
+        url: "https://www.mobri.nl/diensten/onderhoud-content-support/",
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Onderhoud & Content Support" }],
+    },
 };
 
 export default function OnderhoudPage() {
@@ -16,8 +22,9 @@ export default function OnderhoudPage() {
             title="Onderhoud & Content Support"
             subtitle="Continuïteit & Relevantie"
             intro="Een website is nooit 'klaar'. Wij zorgen dat jouw platform technisch up-to-date blijft en dat je content altijd fris en relevant is, zonder dat jij er omkijken naar hebt."
-            image="/images/services/onderhoud.png"
+            image="/images/services/onderhoud.webp"
             imageAlt="Mobri Onderhoud & Content Support - Technisch beheer en website actualisatie"
+            subjectKey="onderhoud"
             icon={<Wrench className="w-16 h-16" />}
             sections={[
                 {

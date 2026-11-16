@@ -217,9 +217,13 @@ export function Hero() {
                                 <p className="text-xs uppercase tracking-widest opacity-50 font-bold mb-1">Services</p>
                                 <p className="text-sm font-bold">Web • Design • Support</p>
                             </div>
-                            <div className="w-10 h-10 bg-white text-secondary rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
+                            <Link
+                                href="/#contact"
+                                aria-label="Start een gesprek met Mobri"
+                                className="w-10 h-10 bg-white text-secondary rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer"
+                            >
                                 <ArrowRight className="w-5 h-5" />
-                            </div>
+                            </Link>
                         </div>
                     </div>
 

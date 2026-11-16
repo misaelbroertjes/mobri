@@ -19,6 +19,8 @@ export function Footer() {
                                 <img
                                     src="/logo.png"
                                     alt="Mobri Logo - Websites & Virtual Assistant"
+                                    width={28}
+                                    height={28}
                                     className="w-7 h-7 object-contain"
                                 />
                             </div>
@@ -27,28 +29,60 @@ export function Footer() {
                                 <span className="text-primary">.</span>
                             </div>
                         </Link>
-                        <p className="text-white/60 text-sm leading-relaxed max-w-xs">
+                        <p className="text-white/70 text-sm leading-relaxed max-w-xs">
                             Professionele websites en Virtual Assistant services voor ondernemers met een visie.
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://www.linkedin.com/company/mobri" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all">
+                            <a
+                                href="https://www.linkedin.com/company/mobri"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Volg Mobri op LinkedIn"
+                                className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-primary-foreground transition-all"
+                            >
                                 <LinkedinIcon className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
 
                     <div className="space-y-4">
-                        <h4 className="font-bold text-foreground">Contact</h4>
-                        <ul className="space-y-2 text-muted-foreground text-sm">
-                            <li>Bolsterturf 2, 7942 MC <Link href="/webdesign-meppel/" className="hover:text-primary transition-colors">Meppel</Link></li>
-                            <li><a href="tel:0638125176" className="hover:text-primary">06-38125176</a></li>
-                            <li><a href="mailto:info@mobri.nl" className="hover:text-primary">info@mobri.nl</a></li>
+                        <h4 className="font-bold text-white">Diensten</h4>
+                        <ul className="space-y-2 text-white/70 text-sm">
+                            <li>
+                                <Link href="/diensten/web-development/" className="hover:text-primary transition-colors">
+                                    Web Development
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/diensten/onderhoud-content-support/" className="hover:text-primary transition-colors">
+                                    Onderhoud & Content Support
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/diensten/virtual-assistant/" className="hover:text-primary transition-colors">
+                                    Virtual Assistant
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/diensten/design/" className="hover:text-primary transition-colors">
+                                    Design & Branding
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
                     <div className="space-y-4">
-                        <h4 className="font-bold text-foreground">Details</h4>
-                        <ul className="space-y-2 text-muted-foreground text-sm">
+                        <h4 className="font-bold text-white">Contact</h4>
+                        <ul className="space-y-2 text-white/70 text-sm">
+                            <li>Bolsterturf 2, 7942 MC <Link href="/webdesign-meppel/" className="hover:text-primary transition-colors underline decoration-white/20 underline-offset-4">Meppel</Link></li>
+                            <li><a href="tel:0638125176" className="hover:text-primary transition-colors">06-38125176</a></li>
+                            <li><a href="mailto:info@mobri.nl" className="hover:text-primary transition-colors">info@mobri.nl</a></li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-4">
+                        <h4 className="font-bold text-white">Details</h4>
+                        <ul className="space-y-2 text-white/70 text-sm">
                             <li>KVK: 66470188</li>
                             <li>
                                 <Link href="/voorwaarden/" className="hover:text-primary transition-colors">
@@ -64,7 +98,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-muted pt-8 text-center text-sm text-muted-foreground">
+                <div className="border-t border-white/10 pt-8 text-center text-sm text-white/60">
                     &copy; {currentYear} Mobri. Alle rechten voorbehouden.
                 </div>
             </div>

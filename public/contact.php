@@ -55,11 +55,12 @@ if (!empty($honeypot)) {
 // Log valid submission
 $_SESSION['form_submissions'][] = $now;
 
-// Validation
-$name = filter_var($data["name"] ?? "", FILTER_SANITIZE_STRING);
-$email = filter_var($data["email"] ?? "", FILTER_SANITIZE_EMAIL);
-$subject = filter_var($data["subject"] ?? "website", FILTER_SANITIZE_STRING);
-$message = filter_var($data["message"] ?? "", FILTER_SANITIZE_STRING);
+// Validation & Sanitization (PHP 8.1+ compatible)
+$name = trim(strip_tags((string)($data["name"] ?? "")));
+$rawEmail = trim((string)($data["email"] ?? ""));
+$email = filter_var(str_replace(["\r", "\n"], "", $rawEmail), FILTER_SANITIZE_EMAIL);
+$subject = trim(strip_tags((string)($data["subject"] ?? "web-development")));
+$message = trim(strip_tags((string)($data["message"] ?? "")));
 
 if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -69,18 +70,24 @@ if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILT
 
 // Subject mapping
 $subjects = [
+    "web-development" => "Web Development Aanvraag",
+    "onderhoud" => "Onderhoud & Content Support Aanvraag",
+    "virtual-assistant" => "Virtual Assistant Aanvraag",
+    "design" => "Design & Branding Aanvraag",
+    "other" => "Overig Bericht",
+    // Legacy keys fallback
     "website" => "Nieuwe Website Aanvraag",
-    "va" => "Virtual Assistant Aanvraag",
-    "design" => "Design Hulp Nodig",
-    "other" => "Overig Bericht"
+    "va" => "Virtual Assistant Aanvraag"
 ];
 $mailSubject = "Nieuw bericht van mobri.nl: " . ($subjects[$subject] ?? "Overig");
 
-// Email headers - PREVENT SPOOFING
+// Email headers - PREVENT SPOOFING & SUPPORT UTF-8
 // Always send FROM your own domain to ensure deliverability
 $to = "info@mobri.nl";
-$headers = "From: info@mobri.nl\r\n";
+$headers = "From: Mobri Website <info@mobri.nl>\r\n";
 $headers .= "Reply-To: " . $email . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 $emailBody = "Er is een nieuw bericht ontvangen via het contactformulier:\n\n";

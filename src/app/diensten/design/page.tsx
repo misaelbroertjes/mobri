@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.mobri.nl/diensten/design/",
     },
+    openGraph: {
+        title: "Design & Branding | Mobri",
+        description: "Krachtige visuele identiteiten die jouw verhaal vertellen. Van logo-ontwerp tot complete brand identity en UI/UX design.",
+        url: "https://www.mobri.nl/diensten/design/",
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Design & Branding" }],
+    },
 };
 
 export default function DesignPage() {
@@ -16,8 +22,9 @@ export default function DesignPage() {
             title="Design & Branding"
             subtitle="Visuele Autoriteit"
             intro="Een merk is meer dan een logo. Het is het gevoel dat je achterlaat. Wij vertalen jouw visie naar een krachtige identiteit die herkenbaar en tijdloos is."
-            image="/images/services/design.png"
+            image="/images/services/design.webp"
             imageAlt="Mobri Design & Branding - Visuele identiteit en merkontwikkeling"
+            subjectKey="design"
             icon={<PenTool className="w-16 h-16" />}
             sections={[
                 {

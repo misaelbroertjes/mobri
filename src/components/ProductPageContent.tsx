@@ -28,6 +28,7 @@ interface ProductPageContentProps {
     icon: React.ReactNode;
     ctaLabel?: string;
     imageAlt?: string;
+    subjectKey?: string;
 }
 
 export function ProductPageContent({
@@ -41,11 +42,32 @@ export function ProductPageContent({
     icon,
     ctaLabel = "Start een project",
     imageAlt,
+    subjectKey,
 }: ProductPageContentProps) {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const contactHref = subjectKey ? `/?subject=${subjectKey}#contact` : "/#contact";
+
+    const faqJsonLd = faqs && faqs.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer,
+            },
+        })),
+    } : null;
 
     return (
         <main className="min-h-screen bg-background">
+            {faqJsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+                />
+            )}
             <Header />
 
             {/* Hero Section */}
@@ -99,7 +121,7 @@ export function ProductPageContent({
                                     className="relative group cursor-pointer inline-block"
                                 >
                                     <Link
-                                        href="/#contact"
+                                        href={contactHref}
                                         className="relative inline-flex items-center justify-center min-w-[220px] px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold shadow-2xl shadow-primary/30 overflow-hidden transition-all duration-500 group-hover:shadow-primary/50"
                                     >
                                         {/* Background inversion (Yellow to Green for light background) */}
@@ -148,6 +170,9 @@ export function ProductPageContent({
                                     <img
                                         src={image}
                                         alt={imageAlt || `Afbeelding voor de Mobri dienst: ${title}`}
+                                        width={600}
+                                        height={600}
+                                        fetchPriority="high"
                                         className="w-full h-full object-cover"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-transparent pointer-events-none" />
@@ -255,6 +280,7 @@ export function ProductPageContent({
                                 >
                                     <button
                                         onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                        aria-expanded={openFaq === index}
                                         className="w-full px-8 py-6 text-left flex items-center justify-between gap-4 font-bold text-secondary text-lg"
                                     >
                                         {faq.question}
@@ -287,7 +313,7 @@ export function ProductPageContent({
 
             {/* Improved CTA Section */}
             <section className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(#FDFBF7_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none" />
                 <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -309,7 +335,7 @@ export function ProductPageContent({
                                 className="relative group cursor-pointer"
                             >
                                 <Link
-                                    href="/#contact"
+                                    href={contactHref}
                                     className="relative inline-flex items-center justify-center min-w-[220px] px-10 py-5 bg-primary text-primary-foreground rounded-full font-bold text-lg shadow-2xl shadow-primary/30 overflow-hidden transition-all duration-500 group-hover:shadow-primary/50"
                                 >
                                     {/* Background inversion */}

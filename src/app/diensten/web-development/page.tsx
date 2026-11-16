@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.mobri.nl/diensten/web-development/",
     },
+    openGraph: {
+        title: "Web Development | Mobri",
+        description: "Wij bouwen moderne, snelle en conversie-gerichte websites. Van maatwerk Next.js oplossingen tot flexibele WordPress systemen.",
+        url: "https://www.mobri.nl/diensten/web-development/",
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Web Development" }],
+    },
 };
 
 export default function WebDevelopmentPage() {
@@ -16,8 +22,9 @@ export default function WebDevelopmentPage() {
             title="Web Development"
             subtitle="Moderne Digitale Expertise"
             intro="Wij bouwen niet zomaar websites. Wij creëren digitale fundamenten die schaalbaar, razendsnel en conversie-gericht zijn. Van complexe webapplicaties tot strakke bedrijfsportfolio's."
-            image="/images/services/web-development.png"
+            image="/images/services/web-development.webp"
             imageAlt="Mobri Web Development - Op maat gemaakte, snelle websites"
+            subjectKey="web-development"
             icon={<Monitor className="w-16 h-16" />}
             sections={[
                 {

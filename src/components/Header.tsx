@@ -125,6 +125,8 @@ export function Header() {
                         <img
                             src="/logo.png"
                             alt="Mobri Logo - Websites & Virtual Assistant"
+                            width={40}
+                            height={40}
                             className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
                         />
                         <div className="text-2xl font-heading font-bold text-secondary transition-colors tracking-tight">
@@ -216,6 +218,8 @@ export function Header() {
                                 <img
                                     src="/logo.png"
                                     alt="Mobri Logo - Websites & Virtual Assistant"
+                                    width={32}
+                                    height={32}
                                     className="w-8 h-8 object-contain"
                                 />
                                 <div className="text-xl font-heading font-bold text-secondary tracking-tight">

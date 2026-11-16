@@ -3,8 +3,10 @@
 import { useForm } from "react-hook-form";
 import { ArrowRight, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
+const VALID_SUBJECTS = ["web-development", "onderhoud", "virtual-assistant", "design", "other"];
 
 export function ContactForm() {
     const [submitStatus, setSubmitStatus] = useState<"idle" | "error">("idle");
@@ -13,8 +15,18 @@ export function ContactForm() {
         register,
         handleSubmit,
         reset,
+        setValue,
         formState: { errors, isSubmitting },
     } = useForm();
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const params = new URLSearchParams(window.location.search);
+        const subjectParam = params.get("subject");
+        if (subjectParam && VALID_SUBJECTS.includes(subjectParam)) {
+            setValue("subject", subjectParam);
+        }
+    }, [setValue]);
 
     const onSubmit = async (data: any) => {
         setSubmitStatus("idle");

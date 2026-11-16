@@ -22,13 +22,20 @@ export function CookieBanner() {
 
         if (!consent) {
             // Show banner after a short delay
-            const timer = setTimeout(() => setIsVisible(true), 1500);
-            return () => clearTimeout(timer);
+            const timer = setTimeout(() => {
+                setIsVisible(true);
+                document.body.classList.add("cookie-banner-open");
+            }, 1500);
+            return () => {
+                clearTimeout(timer);
+                document.body.classList.remove("cookie-banner-open");
+            };
         }
     }, []);
 
     const handleConsent = (status: "granted" | "denied") => {
         localStorage.setItem("cookie-consent", status);
+        document.body.classList.remove("cookie-banner-open");
 
         // Update Google Analytics Consent Mode
         if (typeof window !== "undefined" && (window as any).gtag) {
@@ -47,7 +54,7 @@ export function CookieBanner() {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
-                    className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md z-[100]"
+                    className="fixed bottom-6 left-6 right-6 md:left-8 md:right-auto md:max-w-md z-[100]"
                 >
                     <div className="bg-secondary text-secondary-foreground p-6 rounded-3xl shadow-2xl border border-white/10 backdrop-blur-xl bg-secondary/95">
                         <div className="flex items-start gap-4 mb-4">
@@ -62,7 +69,8 @@ export function CookieBanner() {
                                 </p>
                             </div>
                             <button
-                                onClick={() => setIsVisible(false)}
+                                onClick={() => handleConsent("denied")}
+                                aria-label="Sluiten en cookies weigeren"
                                 className="text-secondary-foreground/40 hover:text-white transition-colors"
                             >
                                 <X className="w-5 h-5" />

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "Mobri | Websites & Virtual Assistant",
   description: "Websites met een persoonlijke touch. Wij helpen ondernemers met professionele websites en support als Virtual Assistant.",
   alternates: {
-    canonical: "./",
+    canonical: "https://www.mobri.nl/",
   },
   openGraph: {
     title: "Mobri | Websites & Virtual Assistant",
@@ -35,9 +35,10 @@ export const metadata: Metadata = {
     siteName: "Mobri",
     images: [
       {
-        url: "/logo.png",
-        width: 800,
-        height: 600,
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Mobri | Websites & Virtual Assistant",
       },
     ],
     locale: "nl_NL",
@@ -62,8 +63,10 @@ export default function RootLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
+            "@id": "https://www.mobri.nl/#localbusiness",
             "name": "Mobri",
-            "description": "Websites en Virtual Assistant services",
+            "image": "https://www.mobri.nl/opengraph-image.png",
+            "description": "Professionele websites en Virtual Assistant services met een persoonlijke touch.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Bolsterturf 2",
@@ -71,22 +74,45 @@ export default function RootLayout({
               "postalCode": "7942 MC",
               "addressCountry": "NL"
             },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 52.6937,
+              "longitude": 6.1945
+            },
             "telephone": "+31638125176",
             "email": "info@mobri.nl",
-            "url": "https://www.mobri.nl",
-            "priceRange": "$$"
+            "url": "https://www.mobri.nl/",
+            "priceRange": "€€",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "09:00",
+              "closes": "17:00"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/mobri"
+            ]
           })
         }} />
 
-        {/* Google Analytics Consent Mode Default */}
+        {/* Google Analytics Consent Mode v2 Default */}
         <Script id="google-analytics-consent" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             
-            // Default consent to 'denied'
+            // Default consent to 'denied' (Consent Mode v2)
             gtag('consent', 'default', {
-              'analytics_storage': 'denied'
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied'
             });
           `}
         </Script>

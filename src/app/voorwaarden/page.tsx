@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.mobri.nl/voorwaarden/",
     },
+    openGraph: {
+        title: "Algemene Voorwaarden | Mobri",
+        description: "Algemene Voorwaarden van Mobri voor onze diensten en producten.",
+        url: "https://www.mobri.nl/voorwaarden/",
+    },
 };
 
 export default function VoorwaardenPage() {

@@ -10,7 +10,7 @@ const team = [
         name: "Misaël Broertjes",
         role: "Web & Tech Lead",
         bio: "Ik zorg dat jouw website [technisch] staat als een huis. [Snel], [veilig] en makkelijk te gebruiken.",
-        image: "/images/team/misael-headshot.png",
+        image: "/images/team/misael-headshot.webp",
         imageClass: "-translate-x-[8%] translate-y-[8%]",
         icons: [
             { Icon: Code2, x: "-55%", y: "-45%", size: "w-14 h-14", delay: 0, parallax: 40, mouseStrength: 15 },
@@ -24,7 +24,7 @@ const team = [
         name: "Eva Broertjes",
         role: "Design & Virtual Assistant",
         bio: "Ik ben jouw [creatieve] en organisatorische rechterhand. Van [huisstijl] tot [workflow].",
-        image: "/images/team/eva-headshot.png",
+        image: "/images/team/eva-headshot.webp",
         imageClass: "translate-y-[8%]",
         icons: [
             { Icon: Palette, x: "-50%", y: "-40%", size: "w-14 h-14", delay: 0.1, parallax: -50, mouseStrength: 25 },
@@ -122,13 +122,14 @@ export function TeamSection() {
     });
 
     useEffect(() => {
+        if (!window.matchMedia("(pointer: fine)").matches) return;
         const handleMouseMove = (e: MouseEvent) => {
             const { innerWidth, innerHeight } = window;
             mouseX.set((e.clientX / innerWidth) - 0.5);
             mouseY.set((e.clientY / innerHeight) - 0.5);
         };
 
-        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove, { passive: true });
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, [mouseX, mouseY]);
 
@@ -202,12 +203,12 @@ export function TeamSection() {
                                                 width={400}
                                                 height={400}
                                                 className={`w-full h-full object-contain ${member.imageClass} select-none pointer-events-none drop-shadow-2xl`}
-                                                priority
                                             />
                                         </motion.div>
 
                                         <div
                                             className={`absolute inset-0 z-30`}
+                                            aria-hidden="true"
                                             style={{
                                                 maskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 60%)',
                                                 WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 60%)'
@@ -215,11 +216,10 @@ export function TeamSection() {
                                         >
                                             <Image
                                                 src={member.image}
-                                                alt={`Portretfoto van ${member.name} - ${member.role} bij Mobri`}
+                                                alt=""
                                                 width={400}
                                                 height={400}
                                                 className={`w-full h-full object-contain ${member.imageClass} select-none pointer-events-none drop-shadow-2xl`}
-                                                priority
                                             />
                                         </div>
                                     </div>

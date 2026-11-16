@@ -15,9 +15,12 @@ export function WhatsAppButton() {
         setMounted(true);
         const timer = setTimeout(() => setIsVisible(true), 2000);
 
-        // Check for mobile menu state
+        // Check for mobile menu or cookie banner state
         const checkMenu = () => {
-            setIsMenuOpen(document.body.classList.contains("mobile-menu-open"));
+            setIsMenuOpen(
+                document.body.classList.contains("mobile-menu-open") ||
+                (window.innerWidth < 768 && document.body.classList.contains("cookie-banner-open"))
+            );
         };
 
         const observer = new MutationObserver(checkMenu);
@@ -50,6 +53,7 @@ export function WhatsAppButton() {
                     >
                         <button
                             onClick={() => setIsOpen(false)}
+                            aria-label="Sluiten"
                             className="absolute top-3 right-3 text-black/40 hover:text-black transition-colors"
                         >
                             <X size={18} />

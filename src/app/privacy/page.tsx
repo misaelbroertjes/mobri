@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.mobri.nl/privacy/",
     },
+    openGraph: {
+        title: "Privacyverklaring | Mobri",
+        description: "Privacyverklaring van mobri.nl",
+        url: "https://www.mobri.nl/privacy/",
+    },
 };
 
 export default function PrivacyPage() {
