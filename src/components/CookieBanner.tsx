@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck, X } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function CookieBanner() {
     const [isVisible, setIsVisible] = useState(false);
@@ -11,11 +12,11 @@ export function CookieBanner() {
         // Check if user has already made a choice
         const consent = localStorage.getItem("cookie-consent");
 
-        // If they already granted consent, we must update GA immediately on mount
+        // If they already granted consent, ensure GA consent is synced on mount
         if (consent === "granted") {
-            if (typeof window !== "undefined" && (window as any).gtag) {
-                (window as any).gtag('consent', 'update', {
-                    'analytics_storage': 'granted'
+            if (typeof window !== "undefined" && typeof window.gtag === "function") {
+                window.gtag("consent", "update", {
+                    analytics_storage: "granted",
                 });
             }
         }
@@ -38,11 +39,13 @@ export function CookieBanner() {
         document.body.classList.remove("cookie-banner-open");
 
         // Update Google Analytics Consent Mode
-        if (typeof window !== "undefined" && (window as any).gtag) {
-            (window as any).gtag('consent', 'update', {
-                'analytics_storage': status
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+            window.gtag("consent", "update", {
+                analytics_storage: status,
             });
         }
+
+        trackEvent("cookie_consent", { status });
 
         setIsVisible(false);
     };

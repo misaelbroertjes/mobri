@@ -5,6 +5,7 @@ import { ArrowRight, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 const VALID_SUBJECTS = ["web-development", "onderhoud", "virtual-assistant", "design", "other"];
 
@@ -40,13 +41,19 @@ export function ContactForm() {
             });
 
             if (response.ok) {
+                trackEvent("contact_form_submit", {
+                    subject: String(data?.subject || "web-development"),
+                    page: typeof window !== "undefined" ? window.location.pathname : "/",
+                });
                 reset();
                 router.push("/bedankt");
             } else {
+                trackEvent("contact_form_error", { status: response.status });
                 setSubmitStatus("error");
             }
         } catch (error) {
             console.error("Submission error:", error);
+            trackEvent("contact_form_error", { status: "network_error" });
             setSubmitStatus("error");
         }
     };

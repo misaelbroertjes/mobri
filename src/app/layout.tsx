@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 import Script from "next/script";
 import { CookieBanner } from "@/components/CookieBanner";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 
 export default function RootLayout({
   children,
@@ -105,17 +106,30 @@ export default function RootLayout({
         <Script id="google-analytics-consent" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            
-            // Default consent to 'denied' (Consent Mode v2)
-            gtag('consent', 'default', {
-              'analytics_storage': 'denied',
+            window.gtag = function gtag(){window.dataLayer.push(arguments);};
+
+            var storedConsent = null;
+            try {
+              storedConsent = localStorage.getItem('cookie-consent');
+            } catch (e) {}
+            var initialAnalytics = storedConsent === 'granted' ? 'granted' : 'denied';
+
+            // Default consent (Consent Mode v2), respecting prior user choice before GA config fires
+            window.gtag('consent', 'default', {
+              'analytics_storage': initialAnalytics,
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied'
             });
           `}
         </Script>
+
+        {/* Umami Analytics (Cookieless, privacy-friendly) */}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="ac8bc12a-794d-44de-837f-cc89d83a5523"
+          strategy="afterInteractive"
+        />
 
         {/* Google Tag Manager - Single Source of Truth */}
         <Script id="google-tag-manager" strategy="afterInteractive">
@@ -159,6 +173,7 @@ export default function RootLayout({
         </noscript>
 
         {children}
+        <AnalyticsTracker />
         <WhatsAppButton />
         <CookieBanner />
       </body>

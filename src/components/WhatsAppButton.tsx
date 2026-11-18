@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 export function WhatsAppButton() {
     const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +75,11 @@ export function WhatsAppButton() {
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() =>
+                                trackEvent("whatsapp_click", {
+                                    page: typeof window !== "undefined" ? window.location.pathname : "/",
+                                })
+                            }
                             className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl font-bold transition-all shadow-lg shadow-[#25D366]/20 group"
                         >
                             <MessageCircle size={18} className="group-hover:scale-110 transition-transform" />
@@ -90,7 +96,15 @@ export function WhatsAppButton() {
                         animate={{ opacity: 1, scale: 1, rotate: 0 }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={() => {
+                            const nextOpen = !isOpen;
+                            setIsOpen(nextOpen);
+                            if (nextOpen) {
+                                trackEvent("whatsapp_widget_open", {
+                                    page: typeof window !== "undefined" ? window.location.pathname : "/",
+                                });
+                            }
+                        }}
                         className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xl shadow-[#25D366]/30 pointer-events-auto border-4 border-white/10"
                         aria-label="WhatsApp contact"
                     >
