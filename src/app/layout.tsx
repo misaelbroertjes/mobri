@@ -23,14 +23,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mobri.nl"),
-  title: "Mobri | Websites & Virtual Assistant",
-  description: "Websites met een persoonlijke touch. Wij helpen ondernemers met professionele websites en support als Virtual Assistant.",
+  title: "Website laten maken & Webdesign | Mobri Meppel",
+  description: "Wil je een professionele website laten maken? Mobri in Meppel verzorgt webdesign, bouw en website-onderhoud voor ondernemers, met één vast aanspreekpunt.",
   alternates: {
     canonical: "https://www.mobri.nl/",
   },
   openGraph: {
-    title: "Mobri | Websites & Virtual Assistant",
-    description: "Professionele websites en Virtual Assistant services met een persoonlijke touch.",
+    title: "Website laten maken & Webdesign | Mobri Meppel",
+    description: "Professionele website laten maken, huisstijl & webdesign en zorgeloos onderhoud. Eén persoonlijk aanspreekpunt vanuit Meppel.",
     url: "https://www.mobri.nl/",
     siteName: "Mobri",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Mobri | Websites & Virtual Assistant",
+        alt: "Mobri | Websites, Webdesign & Onderhoud in Meppel",
       },
     ],
     locale: "nl_NL",
@@ -67,7 +67,20 @@ export default function RootLayout({
             "@id": "https://www.mobri.nl/#localbusiness",
             "name": "Mobri",
             "image": "https://www.mobri.nl/opengraph-image.png",
-            "description": "Professionele websites en Virtual Assistant services met een persoonlijke touch.",
+            "description": "Professionele websites laten maken, logo & huisstijl webdesign en zorgeloos website-onderhoud vanuit Meppel voor ondernemers in Drenthe, Overijssel en heel Nederland.",
+            "founder": {
+              "@type": "Person",
+              "name": "Misaël Broertjes"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Meppel" },
+              { "@type": "City", "name": "Zwolle" },
+              { "@type": "City", "name": "Steenwijk" },
+              { "@type": "City", "name": "Hoogeveen" },
+              { "@type": "AdministrativeArea", "name": "Drenthe" },
+              { "@type": "AdministrativeArea", "name": "Overijssel" },
+              { "@type": "Country", "name": "Nederland" }
+            ],
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Bolsterturf 2",

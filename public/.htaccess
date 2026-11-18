@@ -1,5 +1,11 @@
 ErrorDocument 404 /404.html
 
+# Redirects
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^diensten/virtual-assistant/?$ /#services [R=301,L]
+</IfModule>
+
 # Security Headers
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"

@@ -3,76 +3,99 @@ import { PenTool } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Design & Branding | Mobri",
-    description: "Krachtige visuele identiteiten die jouw verhaal vertellen. Van logo-ontwerp tot complete brand identity en UI/UX design.",
+    title: "Logo, Huisstijl & Webdesign laten ontwerpen | Mobri",
+    description: "Wil je een logo, digitale huisstijl of webdesign laten ontwerpen dat direct aansluit op jouw website? Mobri ontwerpt vanuit Meppel voor ondernemers in heel Nederland.",
     alternates: {
         canonical: "https://www.mobri.nl/diensten/design/",
     },
     openGraph: {
-        title: "Design & Branding | Mobri",
-        description: "Krachtige visuele identiteiten die jouw verhaal vertellen. Van logo-ontwerp tot complete brand identity en UI/UX design.",
+        title: "Logo, Huisstijl & Webdesign laten ontwerpen | Mobri",
+        description: "Logo en huisstijl laten ontwerpen die naadloos aansluiten op jouw website? Professioneel design vanuit Meppel voor ZZP en MKB.",
         url: "https://www.mobri.nl/diensten/design/",
-        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Design & Branding" }],
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri - Logo, huisstijl en webdesign laten ontwerpen" }],
     },
 };
 
 export default function DesignPage() {
     return (
         <ProductPageContent
-            title="Design & Branding"
-            subtitle="Visuele Autoriteit"
-            intro="Een merk is meer dan een logo. Het is het gevoel dat je achterlaat. Wij vertalen jouw visie naar een krachtige identiteit die herkenbaar en tijdloos is."
+            title="Logo, huisstijl & webdesign"
+            subtitle="Herkenbare Visuele Identiteit"
+            intro="Als iemand jouw bedrijf googelt na een gesprek of aanbeveling, heb je maar een paar seconden voor een goede eerste indruk. Ik ontwerp een herkenbaar logo, een rustige huisstijl en een modern webdesign waar je met trots je naam onder zet."
             image="/images/services/design.webp"
-            imageAlt="Mobri Design & Branding - Visuele identiteit en merkontwikkeling"
+            imageAlt="Mobri - Logo, huisstijl en professioneel webdesign laten ontwerpen"
             subjectKey="design"
             icon={<PenTool className="w-16 h-16" />}
+            serviceSchema={{
+                name: "Logo, Huisstijl & Webdesign",
+                serviceType: "Grafisch Ontwerp & Webdesign",
+                description: "Logo laten ontwerpen, complete huisstijl (kleuren, typografie) en professioneel webdesign voor ZZP en MKB.",
+                url: "https://www.mobri.nl/diensten/design/",
+            }}
             sections={[
                 {
-                    title: "Brand Identity",
-                    content: "Ontwikkeling van logo's, typografie en kleurenpaletten die jouw unieke verhaal vertellen.",
+                    title: "Een uitstraling die blijft hangen",
+                    content: "Met een herkenbaar logo, passende kleuren en duidelijke lettertypes zien bezoekers direct wie je bent. Alles leg ik overzichtelijk vast, zodat je overal dezelfde professionele lijn aanhoudt.",
                 },
                 {
-                    title: "UI/UX Design",
-                    content: "Digitale interfaces die niet alleen mooi zijn, maar ook logisch aanvoelen voor de eindgebruiker.",
+                    title: "Rust en overzicht voor je bezoeker",
+                    content: "Bezoekers haken af op drukke, rommelige pagina's. Daarom ontwerp ik overzichtelijke websites die prettig lezen op mobiel én desktop en je bezoeker rustig naar de juiste informatie of contactknop helpen.",
                 },
                 {
-                    title: "Marketing Assets",
-                    content: "Van social media templates tot offline uitingen; wij zorgen voor een consistente uitstraling overal.",
+                    title: "Eén lijn in al je online uitingen",
+                    content: "Naast je website denk ik ook graag mee over social media templates, een LinkedIn-banner of een digitale presentatie. Zo sluit je hele online uitstraling netjes op elkaar aan.",
                 },
             ]}
             steps={[
                 {
-                    title: "Brand Discovery",
-                    description: "Wie ben je en wie wil je zijn? We graven diep naar de kern van jouw merk.",
+                    title: "Kennismaking & Merkrichting",
+                    description: "Wie ben je, wie is je ideale klant en welk gevoel moet jouw merk oproepen? Samen bepalen we de stijlrichting en voorbeelden.",
                 },
                 {
-                    title: "Concept Design",
-                    description: "We presenteren diverse richtingen en itereren op basis van jouw feedback tot we de perfecte snaar raken.",
+                    title: "Ontwerp & Verfijning",
+                    description: "Ik werk concrete ontwerpvoorstellen uit voor je logo, digitale huisstijl of webdesign en scherp deze aan op basis van jouw feedback.",
                 },
                 {
-                    title: "Design System",
-                    description: "We leggen alles vast in een Brand Guide zodat je merk overal eenduidig wordt uitgedragen.",
+                    title: "Oplevering & Digitale Stijlgids",
+                    description: "Je ontvangt alle bron- en gebruiksbestanden (SVG, PNG, PDF) inclusief kleurcodes en lettertypes, direct klaar voor website, e-mail en social media.",
                 },
             ]}
             faqs={[
                 {
-                    question: "Hoe lang duurt een branding traject?",
-                    answer: "Een gemiddeld traject van strategie tot complete huisstijl duurt tussen de 2 en 4 weken. Dit is echter afhankelijk van jouw specifieke wensen en de materialen die al aanwezig zijn.",
+                    question: "Kan ik mijn huisstijl direct combineren met een nieuwe website?",
+                    answer: "Ja, dat is juist het grootste voordeel van Mobri. Omdat ik zowel het ontwerp als de bouw van de website doe, sluiten je logo, kleuren, lettertypes en website vanaf dag één perfect op elkaar aan.",
                 },
                 {
-                    question: "Krijg ik ook de bronbestanden?",
-                    answer: "Zeker. Bij oplevering ontvang je alle relevante formaten (SVG, PNG, PDF) en de originele werkbestanden zodat je nooit afhankelijk bent.",
+                    question: "Hoe lang duurt het ontwerpen van een logo en huisstijl?",
+                    answer: "Een gemiddeld logo- en huisstijltraject duurt 2 tot 4 weken, afhankelijk van de wensen en het aantal feedbackrondes.",
                 },
                 {
-                    question: "Bieden jullie ook losse design klussen aan?",
-                    answer: "Hoewel we vaak complete branding trajecten doen, ondersteunen we onze bestaande klanten ook graag met losse uitingen of aanpassingen.",
+                    question: "Krijg ik alle bronbestanden na oplevering?",
+                    answer: "Zeker. Je ontvangt alle gangbare digitale formaten (zoals SVG, PNG en PDF) inclusief je kleurcodes en lettertypes, zodat je nergens aan vastzit.",
                 },
                 {
-                    question: "Kunnen jullie ook helpen met drukwerk?",
-                    answer: "Absoluut. Wij leveren alles drukklaar aan en kunnen, indien gewenst, ook de afstemming met de drukker voor je regelen.",
+                    question: "Ontwerp je ook social media templates of online banners?",
+                    answer: "Ja, ik richt me volledig op digitaal design: naast webdesign, logo en huisstijl help ik je ook met herbruikbare templates voor bijvoorbeeld LinkedIn, Instagram en je e-mailhandtekening.",
                 },
             ]}
-            ctaLabel="Kijken of er een klik is?"
+            relatedLinks={[
+                {
+                    title: "Website laten maken",
+                    description: "Laat je nieuwe huisstijl direct tot leven komen in een snelle website.",
+                    href: "/diensten/web-development/",
+                },
+                {
+                    title: "Webdesign Meppel",
+                    description: "Persoonlijk sparren aan tafel in Meppel en omgeving.",
+                    href: "/webdesign-meppel/",
+                },
+                {
+                    title: "Website Onderhoud & Beheer",
+                    description: "Houd je website en content blijvend fris en consistent.",
+                    href: "/diensten/onderhoud-content-support/",
+                },
+            ]}
+            ctaLabel="Bespreek jouw uitstraling"
         />
     );
 }

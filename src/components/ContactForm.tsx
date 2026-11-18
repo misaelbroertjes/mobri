@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 
-const VALID_SUBJECTS = ["web-development", "onderhoud", "virtual-assistant", "design", "other"];
+const VALID_SUBJECTS = ["web-development", "design", "onderhoud", "other"];
 
 export function ContactForm() {
     const [submitStatus, setSubmitStatus] = useState<"idle" | "error">("idle");
@@ -82,8 +82,8 @@ export function ContactForm() {
                                 <span className="text-primary italic">volgende stap</span>.
                             </h2>
                             <p className="text-lg opacity-80 leading-relaxed max-w-md">
-                                Heb je een vraag, een idee, of wil je gewoon even sparren?
-                                We horen graag van je. Vul het formulier in of gebruik de contactgegevens.
+                                Wil je een nieuwe website laten maken, je huisstijl opfrissen of je onderhoud uitbesteden?
+                                Stuur een bericht of bel gerust even, ik denk graag met je mee.
                             </p>
                         </div>
 
@@ -145,7 +145,7 @@ export function ContactForm() {
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 relative z-10">
                             <div>
                                 <h3 className="text-3xl font-heading font-bold mb-2 text-white">Stuur een bericht</h3>
-                                <p className="text-white/60 text-sm">We doen ons best om op werkdagen binnen 24 uur te reageren.</p>
+                                <p className="text-white/60 text-sm">Ik reageer op werkdagen meestal binnen 24 uur persoonlijk.</p>
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
@@ -192,10 +192,9 @@ export function ContactForm() {
                                         {...register("subject")}
                                         className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-4 focus:ring-primary/30 focus:bg-white/10 transition-all appearance-none cursor-pointer"
                                     >
-                                        <option value="web-development" className="bg-secondary text-white">Web Development</option>
-                                        <option value="onderhoud" className="bg-secondary text-white">Onderhoud & Content Support</option>
-                                        <option value="virtual-assistant" className="bg-secondary text-white">Virtual Assistant</option>
-                                        <option value="design" className="bg-secondary text-white">Design & Branding</option>
+                                        <option value="web-development" className="bg-secondary text-white">Website laten maken</option>
+                                        <option value="design" className="bg-secondary text-white">Logo, Huisstijl &amp; Webdesign</option>
+                                        <option value="onderhoud" className="bg-secondary text-white">Website Onderhoud &amp; Beheer</option>
                                         <option value="other" className="bg-secondary text-white">Iets anders</option>
                                     </select>
                                     <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-30">
@@ -211,7 +210,7 @@ export function ContactForm() {
                                     rows={4}
                                     {...register("message", { required: true })}
                                     className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-4 focus:ring-primary/30 focus:bg-white/10 transition-all placeholder:text-white/20"
-                                    placeholder="Waarmee kunnen we je helpen?"
+                                    placeholder="Waarmee kan ik je helpen?"
                                 />
                                 {errors.message && <span className="text-primary text-[10px] font-bold uppercase ml-1">Bericht is verplicht</span>}
                             </div>

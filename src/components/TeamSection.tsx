@@ -2,36 +2,23 @@
 
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import Image from "next/image";
-import { Code2, Terminal, Laptop, Palette, PenTool, MessageSquareHeart, Sparkles, Database, Globe, Brush, Users } from "lucide-react";
+import { Code2, Laptop, Palette, PenTool, Globe } from "lucide-react";
 import React, { useRef, useEffect } from "react";
 
 const team = [
     {
         name: "Misaël Broertjes",
-        role: "Web & Tech Lead",
-        bio: "Ik zorg dat jouw website [technisch] staat als een huis. [Snel], [veilig] en makkelijk te gebruiken.",
+        role: "Webdesign, Development & Onderhoud",
+        bio: "Ik ontwerp en bouw websites die [snel], [herkenbaar] en [vindbaar] zijn, en zorg dat ze daarna ook zonder zorgen blijven draaien.",
+        details: "Vanuit Meppel help ik ondernemers in Drenthe, Overijssel en daarbuiten. Geen groot bureau met tussenlagen, maar direct contact, korte lijnen en oog voor detail.",
         image: "/images/team/misael-headshot.webp",
         imageClass: "-translate-x-[8%] translate-y-[8%]",
         icons: [
             { Icon: Code2, x: "-55%", y: "-45%", size: "w-14 h-14", delay: 0, parallax: 40, mouseStrength: 15 },
-            { Icon: Terminal, x: "55%", y: "-25%", size: "w-10 h-10", delay: 0.2, parallax: -30, mouseStrength: -20 },
+            { Icon: Palette, x: "55%", y: "-25%", size: "w-10 h-10", delay: 0.2, parallax: -30, mouseStrength: -20 },
             { Icon: Laptop, x: "-50%", y: "25%", size: "w-16 h-16", delay: 0.4, parallax: 20, mouseStrength: 10 },
-            { Icon: Database, x: "65%", y: "30%", size: "w-12 h-12", delay: 0.1, parallax: -45, mouseStrength: 18 },
+            { Icon: PenTool, x: "65%", y: "30%", size: "w-12 h-12", delay: 0.1, parallax: -45, mouseStrength: 18 },
             { Icon: Globe, x: "-10%", y: "-65%", size: "w-11 h-11", delay: 0.3, parallax: 35, mouseStrength: -12 },
-        ]
-    },
-    {
-        name: "Eva Broertjes",
-        role: "Design & Virtual Assistant",
-        bio: "Ik ben jouw [creatieve] en organisatorische rechterhand. Van [huisstijl] tot [workflow].",
-        image: "/images/team/eva-headshot.webp",
-        imageClass: "translate-y-[8%]",
-        icons: [
-            { Icon: Palette, x: "-50%", y: "-40%", size: "w-14 h-14", delay: 0.1, parallax: -50, mouseStrength: 25 },
-            { Icon: PenTool, x: "60%", y: "20%", size: "w-10 h-10", delay: 0.3, parallax: 30, mouseStrength: -15 },
-            { Icon: MessageSquareHeart, x: "40%", y: "-65%", size: "w-16 h-16", delay: 0.5, parallax: -20, mouseStrength: 20 },
-            { Icon: Brush, x: "-65%", y: "15%", size: "w-12 h-12", delay: 0.2, parallax: 45, mouseStrength: -18 },
-            { Icon: Users, x: "10%", y: "55%", size: "w-11 h-11", delay: 0.4, parallax: -35, mouseStrength: 12 },
         ]
     }
 ];
@@ -134,9 +121,9 @@ export function TeamSection() {
     }, [mouseX, mouseY]);
 
     return (
-        <section ref={sectionRef} id="team" className="py-40 bg-white text-secondary relative overflow-hidden">
+        <section ref={sectionRef} id="over-mij" className="py-32 md:py-40 bg-white text-secondary relative overflow-hidden">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="text-center mb-40">
+                <div className="text-center mb-24 md:mb-32">
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -144,13 +131,13 @@ export function TeamSection() {
                         transition={{ duration: 0.6 }}
                     >
                         <span className="text-primary font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">
-                            Creators & Thinkers
+                            Over mij
                         </span>
                         <h2 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-secondary">
-                            Het hart van Mobri<span className="text-primary">.</span>
+                            Het gezicht achter Mobri<span className="text-primary">.</span>
                         </h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed px-4">
-                            Geen groot bureau, maar persoonlijke aandacht. Wij bouwen samen aan jouw digitale succes.
+                            Geen groot bureau met tussenlagen, maar persoonlijke aandacht en één vast aanspreekpunt voor design, techniek en onderhoud.
                         </p>
                     </motion.div>
                 </div>
@@ -259,11 +246,68 @@ export function TeamSection() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, delay: 0.6 }}
                                 >
-                                    "<HighlightText text={member.bio} />"
+                                    &ldquo;<HighlightText text={member.bio} />&rdquo;
                                 </motion.p>
+
+                                {member.details && (
+                                    <motion.p
+                                        className="text-muted-foreground leading-relaxed text-base md:text-lg mt-6 max-w-xl mx-auto md:mx-0"
+                                        initial={{ opacity: 0, y: 15 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6, delay: 0.75 }}
+                                    >
+                                        {member.details}
+                                    </motion.p>
+                                )}
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Extra Over mij diepgang & werkwijze */}
+                <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="p-8 rounded-3xl bg-secondary/5 border border-secondary/10"
+                    >
+                        <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">01 • Eerlijk &amp; klein</p>
+                        <h3 className="text-xl font-heading font-bold text-secondary mb-3">Eén vast aanspreekpunt</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                            Mobri is bewust kleinschalig. Je spreekt geen verkoper of tussenpersoon, maar rechtstreeks degene die jouw website ontwerpt, bouwt en onderhoudt.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="p-8 rounded-3xl bg-secondary/5 border border-secondary/10"
+                    >
+                        <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">02 • Zonder jargon</p>
+                        <h3 className="text-xl font-heading font-bold text-secondary mb-3">Duidelijke afspraken</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                            Ik denk nuchter met je mee over wat jouw bedrijf echt nodig heeft. Geen onnodige functies, maar een snelle website waar bezoekers makkelijk contact opnemen.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="p-8 rounded-3xl bg-secondary/5 border border-secondary/10"
+                    >
+                        <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">03 • Lokaal &amp; flexibel</p>
+                        <h3 className="text-xl font-heading font-bold text-secondary mb-3">Meppel &amp; heel Nederland</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                            In Meppel, Zwolle, Steenwijk en Hoogeveen kom ik graag bij je langs voor een kop koffie. Daarbuiten werken we net zo vlot samen via video-overleg en WhatsApp.
+                        </p>
+                    </motion.div>
                 </div>
             </div >
         </section >

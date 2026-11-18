@@ -18,7 +18,7 @@ export function Footer() {
                             <div className="relative w-11 h-11 flex items-center justify-center rounded-2xl bg-white/10 group-hover:scale-105 transition-all duration-300 shadow-sm border border-white/5">
                                 <img
                                     src="/logo.png"
-                                    alt="Mobri Logo - Websites & Virtual Assistant"
+                                    alt="Mobri Logo - Websites, Webdesign & Onderhoud"
                                     width={28}
                                     height={28}
                                     className="w-7 h-7 object-contain"
@@ -30,7 +30,7 @@ export function Footer() {
                             </div>
                         </Link>
                         <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-                            Professionele websites en Virtual Assistant services voor ondernemers met een visie.
+                            Professionele websites, webdesign en zorgeloos onderhoud vanuit Meppel voor ondernemers in Drenthe, Overijssel en heel Nederland.
                         </p>
                         <div className="flex gap-4">
                             <a
@@ -50,22 +50,22 @@ export function Footer() {
                         <ul className="space-y-2 text-white/70 text-sm">
                             <li>
                                 <Link href="/diensten/web-development/" className="hover:text-primary transition-colors">
-                                    Web Development
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/diensten/onderhoud-content-support/" className="hover:text-primary transition-colors">
-                                    Onderhoud & Content Support
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/diensten/virtual-assistant/" className="hover:text-primary transition-colors">
-                                    Virtual Assistant
+                                    Website laten maken
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/diensten/design/" className="hover:text-primary transition-colors">
-                                    Design & Branding
+                                    Logo, Huisstijl &amp; Webdesign
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/diensten/onderhoud-content-support/" className="hover:text-primary transition-colors">
+                                    Website Onderhoud &amp; Beheer
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/webdesign-meppel/" className="hover:text-primary transition-colors">
+                                    Webdesign Meppel
                                 </Link>
                             </li>
                         </ul>

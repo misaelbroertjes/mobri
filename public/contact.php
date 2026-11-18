@@ -70,14 +70,12 @@ if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILT
 
 // Subject mapping
 $subjects = [
-    "web-development" => "Web Development Aanvraag",
-    "onderhoud" => "Onderhoud & Content Support Aanvraag",
-    "virtual-assistant" => "Virtual Assistant Aanvraag",
-    "design" => "Design & Branding Aanvraag",
+    "web-development" => "Website laten maken Aanvraag",
+    "onderhoud" => "Website Onderhoud & Beheer Aanvraag",
+    "design" => "Logo, Huisstijl & Webdesign Aanvraag",
     "other" => "Overig Bericht",
     // Legacy keys fallback
     "website" => "Nieuwe Website Aanvraag",
-    "va" => "Virtual Assistant Aanvraag"
 ];
 $mailSubject = "Nieuw bericht van mobri.nl: " . ($subjects[$subject] ?? "Overig");
 

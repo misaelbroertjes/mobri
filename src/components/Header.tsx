@@ -40,7 +40,7 @@ export function Header() {
     const navLinks = [
         { name: "Home", href: "/#hero" },
         { name: "Diensten", href: "/#services" },
-        { name: "Team", href: "/#team" },
+        { name: "Over mij", href: "/#over-mij" },
         { name: "Contact", href: "/#contact" },
     ];
 
@@ -124,7 +124,7 @@ export function Header() {
                     <Link href="/" className="flex items-center gap-3 group">
                         <img
                             src="/logo.png"
-                            alt="Mobri Logo - Websites & Virtual Assistant"
+                            alt="Mobri Logo - Websites, Webdesign & Onderhoud"
                             width={40}
                             height={40}
                             className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
@@ -153,22 +153,23 @@ export function Header() {
 
                                 {link.name === "Diensten" && (
                                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav-item:opacity-100 group-hover/nav-item:visible transition-all duration-300 transform scale-95 group-hover/nav-item:scale-100">
-                                        <div className="bg-white border border-secondary/5 shadow-2xl rounded-2xl p-4 w-64 grid gap-2">
+                                        <div className="bg-white border border-secondary/5 shadow-2xl rounded-2xl p-4 w-72 grid gap-2">
                                             <Link href="/diensten/web-development/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
-                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Web Development</p>
-                                                <p className="text-[10px] text-muted-foreground">Moderne websites</p>
-                                            </Link>
-                                            <Link href="/diensten/onderhoud-content-support/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
-                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Onderhoud & Content Support</p>
-                                                <p className="text-[10px] text-muted-foreground">Technisch beheer</p>
-                                            </Link>
-                                            <Link href="/diensten/virtual-assistant/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
-                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Virtual Assistant</p>
-                                                <p className="text-[10px] text-muted-foreground">Strategische support</p>
+                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Website laten maken</p>
+                                                <p className="text-[10px] text-muted-foreground">WordPress & maatwerk</p>
                                             </Link>
                                             <Link href="/diensten/design/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
-                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Design & Branding</p>
-                                                <p className="text-[10px] text-muted-foreground">Visuele autoriteit</p>
+                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Logo, Huisstijl & Webdesign</p>
+                                                <p className="text-[10px] text-muted-foreground">Sterke visuele identiteit</p>
+                                            </Link>
+                                            <Link href="/diensten/onderhoud-content-support/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Website Onderhoud & Beheer</p>
+                                                <p className="text-[10px] text-muted-foreground">Updates, veiligheid & content</p>
+                                            </Link>
+                                            <div className="h-px bg-secondary/5 my-1" />
+                                            <Link href="/webdesign-meppel/" className="p-3 hover:bg-primary/5 rounded-xl transition-colors group/sub">
+                                                <p className="font-bold text-secondary text-xs group-hover/sub:text-primary">Webdesign Meppel</p>
+                                                <p className="text-[10px] text-muted-foreground">Lokaal & persoonlijk in de regio</p>
                                             </Link>
                                         </div>
                                     </div>
@@ -217,7 +218,7 @@ export function Header() {
                             <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
                                 <img
                                     src="/logo.png"
-                                    alt="Mobri Logo - Websites & Virtual Assistant"
+                                    alt="Mobri Logo - Websites, Webdesign & Onderhoud"
                                     width={32}
                                     height={32}
                                     className="w-8 h-8 object-contain"
@@ -250,10 +251,10 @@ export function Header() {
                                             <div className="flex flex-col gap-3">
                                                 <span className="text-xl font-bold text-secondary">{link.name}</span>
                                                 <div className="grid gap-3 py-1">
-                                                    <Link href="/diensten/web-development/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Web Development</Link>
-                                                    <Link href="/diensten/onderhoud-content-support/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Onderhoud & Content Support</Link>
-                                                    <Link href="/diensten/virtual-assistant/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Virtual Assistant</Link>
-                                                    <Link href="/diensten/design/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Design & Branding</Link>
+                                                    <Link href="/diensten/web-development/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Website laten maken</Link>
+                                                    <Link href="/diensten/design/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Logo, Huisstijl & Webdesign</Link>
+                                                    <Link href="/diensten/onderhoud-content-support/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Website Onderhoud & Beheer</Link>
+                                                    <Link href="/webdesign-meppel/" className="text-base text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Webdesign Meppel</Link>
                                                 </div>
                                             </div>
                                         ) : (

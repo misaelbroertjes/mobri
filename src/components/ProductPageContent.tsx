@@ -1,12 +1,11 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown, Plus } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import Image from "next/image";
 
 interface ProductPageContentProps {
     title: string;
@@ -25,6 +24,17 @@ interface ProductPageContentProps {
         question: string;
         answer: string;
     }[];
+    relatedLinks?: {
+        title: string;
+        description: string;
+        href: string;
+    }[];
+    serviceSchema?: {
+        name: string;
+        serviceType: string;
+        description: string;
+        url: string;
+    };
     icon: React.ReactNode;
     ctaLabel?: string;
     imageAlt?: string;
@@ -39,6 +49,8 @@ export function ProductPageContent({
     sections,
     steps,
     faqs,
+    relatedLinks,
+    serviceSchema,
     icon,
     ctaLabel = "Start een project",
     imageAlt,
@@ -60,8 +72,35 @@ export function ProductPageContent({
         })),
     } : null;
 
+    const serviceJsonLd = serviceSchema ? {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": serviceSchema.name,
+        "serviceType": serviceSchema.serviceType,
+        "description": serviceSchema.description,
+        "url": serviceSchema.url,
+        "provider": {
+            "@id": "https://www.mobri.nl/#localbusiness",
+        },
+        "areaServed": [
+            { "@type": "City", "name": "Meppel" },
+            { "@type": "City", "name": "Zwolle" },
+            { "@type": "City", "name": "Steenwijk" },
+            { "@type": "City", "name": "Hoogeveen" },
+            { "@type": "AdministrativeArea", "name": "Drenthe" },
+            { "@type": "AdministrativeArea", "name": "Overijssel" },
+            { "@type": "Country", "name": "Nederland" },
+        ],
+    } : null;
+
     return (
         <main className="min-h-screen bg-background">
+            {serviceJsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+                />
+            )}
             {faqJsonLd && (
                 <script
                     type="application/ld+json"
@@ -197,7 +236,7 @@ export function ProductPageContent({
             <section className="py-24 bg-secondary/5">
                 <div className="container mx-auto px-4 md:px-6 text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-4">
-                        Onze <span className="text-primary italic">Expertise</span>
+                        Wat je <span className="text-primary italic">krijgt</span>
                     </h2>
                     <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
                 </div>
@@ -229,12 +268,12 @@ export function ProductPageContent({
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="flex flex-col lg:flex-row gap-16 items-center">
                             <div className="lg:w-1/3">
-                                <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Onze aanpak</span>
+                                <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Werkwijze</span>
                                 <h2 className="text-4xl md:text-5xl font-heading font-bold text-secondary mb-6 leading-tight">
-                                    Hoe wij jou <span className="text-primary italic">helpen groeien.</span>
+                                    Stap voor stap naar <span className="text-primary italic">resultaat.</span>
                                 </h2>
                                 <p className="text-muted-foreground text-lg leading-relaxed">
-                                    Wij geloven in een gestroomlijnd proces waarbij transparantie en resultaat centraal staan.
+                                    Geen ingewikkeld traject, maar korte lijnen, heldere afspraken en direct contact met Misaël vanuit Meppel.
                                 </p>
                             </div>
                             <div className="lg:w-2/3 grid gap-6 w-full">
@@ -311,6 +350,41 @@ export function ProductPageContent({
                 </section>
             )}
 
+            {/* Related Internal Links */}
+            {relatedLinks && relatedLinks.length > 0 && (
+                <section className="py-16 bg-background border-t border-secondary/5">
+                    <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+                        <div className="text-center mb-10">
+                            <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Verder kijken</span>
+                            <h2 className="text-2xl md:text-3xl font-heading font-bold text-secondary">
+                                Past hier goed bij
+                            </h2>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {relatedLinks.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className="group p-6 bg-white rounded-2xl border border-secondary/10 hover:border-primary/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                                >
+                                    <div>
+                                        <h3 className="font-bold text-secondary text-lg mb-2 group-hover:text-primary transition-colors">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                    <span className="text-xs font-bold text-primary inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                                        Bekijk pagina <ArrowRight className="w-3.5 h-3.5" />
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* Improved CTA Section */}
             <section className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#FDFBF7_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none" />
@@ -322,10 +396,10 @@ export function ProductPageContent({
                         className="max-w-3xl mx-auto"
                     >
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-8 leading-tight">
-                            Klaar om je visie naar <span className="text-primary italic">next-level</span> te tillen?
+                            Klaar voor een website die <span className="text-primary italic">écht werkt</span>?
                         </h2>
                         <p className="text-lg md:text-xl opacity-80 mb-12 leading-relaxed">
-                            Ontdek hoe Mobri jou kan ontzorgen en laten groeien. Plan vandaag nog je gratis kennismaking in.
+                            Plan een vrijblijvende kennismaking in, online of met een kop koffie in Meppel en omgeving.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                             <motion.div

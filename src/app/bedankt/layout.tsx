@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Bedankt voor je bericht | Mobri",
-    description: "Bedankt voor je aanvraag bij Mobri. We nemen zo snel mogelijk contact met je op.",
+    description: "Bedankt voor je aanvraag bij Mobri. Ik neem zo snel mogelijk contact met je op.",
     robots: {
         index: false,
         follow: false,

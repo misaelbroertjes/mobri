@@ -77,16 +77,16 @@ export function Hero() {
                         transition={{ duration: 0.5 }}
                         className="inline-block px-4 py-2 bg-secondary text-white rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 shadow-lg shadow-secondary/10 w-fit"
                     >
-                        MODERNE DIGITALE ONDERSTEUNING
+                        WEBDESIGN &amp; ONTWIKKELING UIT MEPPEL
                     </motion.span>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6 text-foreground"
+                        className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-foreground"
                     >
-                        Jouw visie, onze <br />
-                        <span className="text-primary italic">Digitale Expertise</span>.
+                        Websites, <span className="text-primary italic">webdesign</span><br />
+                        &amp; onderhoud.
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export function Hero() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
                     >
-                        Van razendsnelle websites tot strategische ondersteuning als Virtual Assistant. Wij bouwen het fundament én regelen de backoffice, zodat jij ongestoord kunt groeien.
+                        Kom online net zo professioneel over als in het echt, zonder zelf met techniek te hoeven worstelen. Ik ontwerp, bouw en onderhoud jouw website vanuit Meppel, met heldere statistieken zodat je precies ziet wat bezoekers doen.
                     </motion.p>
                     <div className="flex flex-col gap-8 mt-10">
                         <div className="flex flex-col sm:flex-row gap-6 mt-10">
@@ -162,7 +162,7 @@ export function Hero() {
                                         }}
                                         transition={{ duration: 0.4, ease: "easeOut" }}
                                     >
-                                        Onze diensten
+                                        Bekijk diensten
                                         <div className="relative overflow-hidden w-6 h-6 shrink-0">
                                             <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 -translate-x-8 group-hover:translate-x-0" />
                                             <ArrowRight className="w-6 h-6 absolute transition-transform duration-500 translate-x-0 group-hover:translate-x-8" />
@@ -194,10 +194,10 @@ export function Hero() {
                                 M
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg">Mobri Assistant</h3>
+                                <h3 className="font-bold text-lg">Misaël van Mobri</h3>
                                 <div className="flex items-center gap-2">
                                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                                    <p className="text-xs text-secondary-foreground/70 font-medium">Online & Ready</p>
+                                    <p className="text-xs text-secondary-foreground/70 font-medium">Direct &amp; persoonlijk contact</p>
                                 </div>
                             </div>
                         </div>
@@ -205,17 +205,17 @@ export function Hero() {
                         {/* Conversation Bubbles */}
                         <div className="space-y-4 mb-8">
                             <div className="bg-secondary-foreground/10 p-4 rounded-tr-2xl rounded-bl-2xl rounded-br-2xl text-sm leading-relaxed">
-                                "Ik zoek hulp bij mijn website én content."
+                                &ldquo;Mijn website is verouderd en ik heb geen tijd voor het technische gedoe.&rdquo;
                             </div>
                             <div className="bg-primary p-4 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl text-sm text-primary-foreground font-medium ml-auto w-fit shadow-sm">
-                                "Geen probleem! Wij bouwen de site en helpen je met de inhoud. 🚀"
+                                &ldquo;Geen zorgen! Ik ontwerp, bouw en onderhoud hem voor je.&rdquo;
                             </div>
                         </div>
 
                         <div className="pt-6 border-t border-white/10 flex justify-between items-center bg-secondary-foreground/5 -mx-8 -mb-8 p-6 rounded-b-3xl">
                             <div>
-                                <p className="text-xs uppercase tracking-widest opacity-50 font-bold mb-1">Services</p>
-                                <p className="text-sm font-bold">Web • Design • Support</p>
+                                <p className="text-xs uppercase tracking-widest opacity-50 font-bold mb-1">Specialisaties</p>
+                                <p className="text-sm font-bold">Websites • Design • Onderhoud</p>
                             </div>
                             <Link
                                 href="/#contact"

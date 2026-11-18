@@ -76,7 +76,7 @@ export default function ThankYouPage() {
                             variants={itemVariants}
                             className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto"
                         >
-                            We hebben je aanvraag goed ontvangen. We streven ernaar om binnen <span className="text-secondary font-bold">24 uur op werkdagen</span> persoonlijk contact met je op te nemen.
+                            Ik heb je aanvraag goed ontvangen en streef ernaar om binnen <span className="text-secondary font-bold">24 uur op werkdagen</span> persoonlijk contact met je op te nemen.
                         </motion.p>
 
                         <motion.div
@@ -104,7 +104,7 @@ export default function ThankYouPage() {
                             variants={itemVariants}
                             className="pt-12 border-t border-secondary/10"
                         >
-                            <p className="text-sm font-bold uppercase tracking-widest text-secondary/40 mb-4">Onze belofte</p>
+                            <p className="text-sm font-bold uppercase tracking-widest text-secondary/40 mb-4">Mijn belofte</p>
                             <p className="text-xl font-heading font-medium text-secondary/80 italic">
                                 "Persoonlijke aandacht, digitale groei."
                             </p>

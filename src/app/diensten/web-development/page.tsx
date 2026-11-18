@@ -3,80 +3,107 @@ import { Monitor } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Web Development | Mobri",
-    description: "Wij bouwen moderne, snelle en conversie-gerichte websites. Van maatwerk Next.js oplossingen tot flexibele WordPress systemen.",
+    title: "Website laten maken | WordPress & Maatwerk | Mobri",
+    description: "Een snelle, professionele website laten maken voor ZZP of MKB? Mobri bouwt vindbare WordPress en maatwerk Next.js websites vanuit Meppel. Plan een kennismaking.",
     alternates: {
         canonical: "https://www.mobri.nl/diensten/web-development/",
     },
     openGraph: {
-        title: "Web Development | Mobri",
-        description: "Wij bouwen moderne, snelle en conversie-gerichte websites. Van maatwerk Next.js oplossingen tot flexibele WordPress systemen.",
+        title: "Website laten maken | WordPress & Maatwerk | Mobri",
+        description: "Een snelle, professionele website laten maken voor ZZP of MKB? Mobri bouwt vindbare WordPress en maatwerk websites vanuit Meppel.",
         url: "https://www.mobri.nl/diensten/web-development/",
-        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Web Development" }],
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri - Website laten maken in WordPress en maatwerk" }],
     },
 };
 
 export default function WebDevelopmentPage() {
     return (
         <ProductPageContent
-            title="Web Development"
-            subtitle="Moderne Digitale Expertise"
-            intro="Wij bouwen niet zomaar websites. Wij creëren digitale fundamenten die schaalbaar, razendsnel en conversie-gericht zijn. Van complexe webapplicaties tot strakke bedrijfsportfolio's."
+            title="Website laten maken"
+            subtitle="WordPress & Maatwerk Websites"
+            intro="Je wilt online net zo professioneel overkomen als in het echt, zonder uren kwijt te zijn aan techniek. Ik bouw een snelle, goed vindbare website voor je en richt direct heldere tracking in zodat je precies ziet wat bezoekers doen."
             image="/images/services/web-development.webp"
-            imageAlt="Mobri Web Development - Op maat gemaakte, snelle websites"
+            imageAlt="Mobri - Professionele website laten maken in WordPress of Next.js maatwerk"
             subjectKey="web-development"
             icon={<Monitor className="w-16 h-16" />}
+            serviceSchema={{
+                name: "Website laten maken",
+                serviceType: "Webdesign & Web Development",
+                description: "Snelle, mobielvriendelijke en SEO-geoptimaliseerde websites laten maken in WordPress of maatwerk Next.js voor ZZP en MKB.",
+                url: "https://www.mobri.nl/diensten/web-development/",
+            }}
             sections={[
                 {
-                    title: "CMS & Maatwerk",
-                    content: "Wij zijn flexibel in onze aanpak. Of je nu de vertrouwde kracht van WordPress CMS nodig hebt of de grenzeloze mogelijkheden van een Next.js maatwerk oplossing, wij bouwen wat het beste bij jouw doelen past.",
+                    title: "Een basis die past bij hoe jij werkt",
+                    content: "Wil je zelf eenvoudig teksten en foto's aanpassen, of besteed je dat liever uit? Op basis van jouw manier van werken kies ik de beste basis: een overzichtelijke WordPress-website of een razendsnelle maatwerksite in Next.js.",
                 },
                 {
-                    title: "De Menselijke Maat in AI",
-                    content: "We benutten de snelheid van AI om efficiënter te bouwen, maar het menselijk oog blijft cruciaal. Wij begrijpen wat je echt wilt en vertalen complexe vragen naar begrijpelijke antwoorden en oplossingen.",
+                    title: "Vindbaar én inzichtelijk",
+                    content: "Niets is frustrerender dan een website waarvan je niet weet of er iemand kijkt. Daarom krijgt elke site direct een sterke SEO-basis voor Google, duidelijke contactknoppen en simpele, privacyvriendelijke statistieken.",
                 },
                 {
-                    title: "Design & Realisatie",
-                    content: "Van de eerste schets tot de volledige technische realisatie; wij zorgen voor een visueel sterke website die technisch perfect in elkaar steekt en jouw merk versterkt.",
+                    title: "Eén aanspreekpunt, geen ruis",
+                    content: "Je hoeft niet te schakelen tussen een losse ontwerper en een programmeur. Omdat ik zowel het webdesign als de bouw verzorg vanuit Meppel, blijft alles strak op elkaar afgestemd en krijg je snel antwoord.",
                 },
             ]}
             steps={[
                 {
-                    title: "Strategie & Blauwdruk",
-                    description: "We duiken in jouw doelen en vertalen deze naar een technisch plan en user flows.",
+                    title: "Kennismaking & Doel",
+                    description: "We bespreken jouw bedrijf, je doelgroep en wat de website voor je moet doen, zoals informatie bieden, aanvragen verzamelen of beter vindbaar worden in Google.",
                 },
                 {
-                    title: "Design & Concept",
-                    description: "Een uniek ontwerp dat jouw merkidentiteit ademt en je doelgroep aanspreekt.",
+                    title: "Webdesign & Structuur",
+                    description: "Ik werk een heldere pagina-indeling en een ontwerp uit dat aansluit op jouw huisstijl en direct vertrouwen wekt bij bezoekers.",
                 },
                 {
-                    title: "Bouw & Integratie",
-                    description: "De realisatie van de site met focus op performance, beveiliging en gebruiksvriendelijkheid.",
+                    title: "Bouw, Snelheid & SEO-basis",
+                    description: "Ik realiseer de website op mobiel en desktop, zorg voor optimale laadsnelheid, veilige formulieren en technische vindbaarheid in Google.",
                 },
                 {
-                    title: "Livegang & Optimalisatie",
-                    description: "Na de lancering blijven we monitoren en bijsturen voor het beste resultaat.",
+                    title: "Livegang & Nazorg",
+                    description: "Na jouw akkoord zetten we de website live en blijf ik beschikbaar voor aanpassingen, updates en doorlopend website-onderhoud.",
                 },
             ]}
             faqs={[
                 {
-                    question: "Wat kost een website bij Mobri?",
-                    answer: "De kosten hangen volledig af van jouw specifieke wensen en de complexiteit van het project. Of het nu gaat om een groot platform of een bescheiden start; we denken graag met je mee over een passende oplossing binnen jouw budget.",
+                    question: "Wat kost een website laten maken bij Mobri?",
+                    answer: "De investering hangt af van de omvang en jouw wensen, van een overzichtelijke bedrijfswebsite voor een ZZP'er tot een uitgebreider maatwerkplatform voor MKB. Na een korte, vrijblijvende kennismaking ontvang je altijd een helder en vast voorstel vooraf.",
                 },
                 {
                     question: "Kan ik zelf teksten en foto's aanpassen?",
-                    answer: "Bij websites die we bouwen met een CMS (zoals WordPress) heb je volledige controle over je eigen content. Voor specifieke maatwerk-oplossingen bespreken we vooraf wat jij zelf wilt kunnen beheren.",
+                    answer: "Ja. Kies je voor een WordPress website, dan kun je zelf eenvoudig teksten, foto's en nieuwe pagina's beheren. Wil je liever geen omkijken naar je site hebben? Dan neem ik wijzigingen en updates uit handen via website onderhoud & content beheer.",
                 },
                 {
-                    question: "Hoe lang duurt het bouwen van een website?",
-                    answer: "Gemiddeld duurt een project tussen de 4 en 8 weken, afhankelijk van de complexiteit en de snelheid van de feedbackrondes.",
+                    question: "Hoe lang duurt het om een website te laten maken?",
+                    answer: "Gemiddeld staat een nieuwe bedrijfswebsite binnen 3 tot 6 weken live, afhankelijk van de omvang en hoe snel teksten, foto's en feedback beschikbaar zijn.",
                 },
                 {
-                    question: "Is mijn website goed vindbaar in Google?",
-                    answer: "Absoluut. Goede techniek en SEO zijn bij ons de standaard, niet een optie achteraf.",
+                    question: "Is mijn website meteen goed vindbaar in Google?",
+                    answer: "De technische basis voor Google staat er standaard goed in: snelle laadtijd, mobielvriendelijk ontwerp, schone URL's, goede paginatitels, een sitemap en Schema.org. Samen zorgen we ervoor dat de teksten aansluiten op hoe jouw doelgroep zoekt.",
+                },
+                {
+                    question: "Bouw je alleen websites in Meppel of ook daarbuiten?",
+                    answer: "Ik werk vanuit Meppel en kom graag persoonlijk langs in de regio (o.a. Zwolle, Steenwijk, Hoogeveen, Drenthe en Overijssel), maar help net zo makkelijk ondernemers door heel Nederland via video-overleg en WhatsApp.",
                 },
             ]}
-            ctaLabel="Zullen we even kennismaken?"
+            relatedLinks={[
+                {
+                    title: "Webdesign Meppel",
+                    description: "Lokaal en persoonlijk een website laten maken in Meppel en omgeving.",
+                    href: "/webdesign-meppel/",
+                },
+                {
+                    title: "Logo, Huisstijl & Webdesign",
+                    description: "Eerst een herkenbaar logo of complete huisstijl die doorloopt in je website.",
+                    href: "/diensten/design/",
+                },
+                {
+                    title: "Website Onderhoud & Beheer",
+                    description: "Houd je website na livegang veilig, snel en altijd up-to-date.",
+                    href: "/diensten/onderhoud-content-support/",
+                },
+            ]}
+            ctaLabel="Plan gratis kennismaking"
         />
     );
 }

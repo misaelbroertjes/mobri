@@ -3,76 +3,99 @@ import { Wrench } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Onderhoud & Content Support | Mobri",
-    description: "Wij zorgen dat jouw website technisch up-to-date blijft en je content altijd fris en relevant is. Zorgeloos beheer van jouw online platform.",
+    title: "Website onderhoud uitbesteden & Content Beheer | Mobri",
+    description: "Website of WordPress onderhoud uitbesteden? Mobri regelt updates, beveiliging, back-ups en content-aanpassingen, zodat jouw website altijd snel en veilig blijft.",
     alternates: {
         canonical: "https://www.mobri.nl/diensten/onderhoud-content-support/",
     },
     openGraph: {
-        title: "Onderhoud & Content Support | Mobri",
-        description: "Wij zorgen dat jouw website technisch up-to-date blijft en je content altijd fris en relevant is. Zorgeloos beheer van jouw online platform.",
+        title: "Website onderhoud uitbesteden & Content Beheer | Mobri",
+        description: "Website of WordPress onderhoud uitbesteden? Updates, beveiliging, back-ups en snelle hulp bij nieuwe teksten of foto's.",
         url: "https://www.mobri.nl/diensten/onderhoud-content-support/",
-        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri Onderhoud & Content Support" }],
+        images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Mobri - Website onderhoud uitbesteden en content beheer" }],
     },
 };
 
 export default function OnderhoudPage() {
     return (
         <ProductPageContent
-            title="Onderhoud & Content Support"
-            subtitle="Continuïteit & Relevantie"
-            intro="Een website is nooit 'klaar'. Wij zorgen dat jouw platform technisch up-to-date blijft en dat je content altijd fris en relevant is, zonder dat jij er omkijken naar hebt."
+            title="Website onderhoud & content beheer"
+            subtitle="Zorgeloos Websitebeheer"
+            intro="Geen stress meer over haperende updates, veiligheidslekken of teksten die al maanden achterlopen. Besteed het onderhoud van je website uit, dan houd ik jouw WordPress- of maatwerkwebsite snel, veilig en actueel."
             image="/images/services/onderhoud.webp"
-            imageAlt="Mobri Onderhoud & Content Support - Technisch beheer en website actualisatie"
+            imageAlt="Mobri - Website en WordPress onderhoud uitbesteden inclusief content beheer"
             subjectKey="onderhoud"
             icon={<Wrench className="w-16 h-16" />}
+            serviceSchema={{
+                name: "Website onderhoud uitbesteden & Content Beheer",
+                serviceType: "Website Onderhoud & WordPress Beheer",
+                description: "Technisch website- en WordPress-onderhoud: updates, back-ups, beveiliging, uptime-monitoring en snelle content-aanpassingen.",
+                url: "https://www.mobri.nl/diensten/onderhoud-content-support/",
+            }}
             sections={[
                 {
-                    title: "Content uit handen",
-                    content: "Geen tijd of zin om zelf blogs, nieuwe teksten of projecten te plaatsen? Stuur het naar ons en wij zorgen dat het direct en netjes online komt te staan.",
+                    title: "Geen zorgen over updates en hacks",
+                    content: "Verouderde plugins en thema's zijn vaak de reden dat een website traag wordt of kapotgaat. Ik voer updates gecontroleerd uit, maak regelmatig back-ups en controleer of formulieren en pagina's daarna gewoon blijven werken.",
                 },
                 {
-                    title: "Consistente Uitstraling",
-                    content: "We kijken verder dan alleen je website. We helpen je om je uitingen ook op andere platformen consistent te houden, zodat je merk overal hetzelfde gevoel uitstraalt.",
+                    title: "Snel iets aangepast zonder zelf te prutsen",
+                    content: "Nieuwe foto's, aangepaste tarieven of een extra dienst online zetten hoeft je geen avond te kosten. Stuur een kort bericht via WhatsApp of e-mail, dan plaats ik het netjes en in stijl op je website.",
                 },
                 {
-                    title: "Technische Veiligheid",
-                    content: "Wij houden je software, plugins en beveiliging wekelijks up-to-date. Zo blijft je site snel, veilig en loop je geen risico op downtime of hacks.",
+                    title: "Altijd snel en stabiel online",
+                    content: "Met doorlopende monitoring en regelmatig onderhoud blijft je website vlot laden en betrouwbaar werken. Dat geeft jou rust én zorgt voor een fijne ervaring voor je bezoekers.",
                 },
             ]}
             steps={[
                 {
-                    title: "Scan & Inventarisatie",
-                    description: "We kijken naar je huidige website en processen om te bepalen waar we de meeste waarde kunnen toevoegen.",
+                    title: "Website-check & Nulmeting",
+                    description: "Ik kijk je huidige website na op verouderde plugins, beveiliging, laadsnelheid en eventuele fouten, en maak eerst een veilige back-up.",
                 },
                 {
-                    title: "Optimalisatie & Setup",
-                    description: "We voeren een eerste grote optimalisatie uit om je site klaar te maken voor doorlopend beheer, waarbij we kijken naar snelheid en stabiliteit.",
+                    title: "Opschonen & Beveiligen",
+                    description: "Ik werk achterstallige updates weg, ruim onnodige ballast op en richt automatische back-ups en monitoring in.",
                 },
                 {
-                    title: "Doorlopende Support",
-                    description: "We plaatsen regelmatig nieuwe content en voeren technisch onderhoud uit, zodat je platform altijd 'up-to-date' en actief oogt.",
+                    title: "Doorlopend Beheer & Support",
+                    description: "Elke maand blijven updates en veiligheid netjes bij, en heb je één direct aanspreekpunt zodra je iets wilt aanpassen of toevoegen.",
                 },
             ]}
             faqs={[
                 {
-                    question: "Hoe gaat het plaatsen van content in zijn werk?",
-                    answer: "Heel simpel: jij stuurt ons de ruwe info (bijv. via mail of WhatsApp). Wij zorgen niet alleen dat het professioneel geplaatst wordt, maar vullen info aan of corrigeren waar nodig zodat het perfect op de site staat.",
+                    question: "Kan ik ook een bestaande WordPress website in onderhoud geven?",
+                    answer: "Ja, ook als je website ooit door iemand anders is gebouwd. Ik doe eerst een korte technische check en neem daarna het onderhoud en beheer veilig van je over.",
                 },
                 {
-                    question: "Werken jullie met projecten of abonnementen?",
-                    answer: "Beide is mogelijk. Voor eenmalige grote klussen werken we op projectbasis, maar voor doorlopende content support en technisch onderhoud bieden we flexibele maandelijkse abonnementen.",
+                    question: "Hoe werkt het doorgeven van tekst- of foto-aanpassingen?",
+                    answer: "Heel laagdrempelig: je stuurt je nieuwe tekst, foto of wijziging via e-mail of WhatsApp. Ik zorg dat het netjes wordt opgemaakt, geoptimaliseerd voor snelheid en direct op de juiste plek op je website komt.",
                 },
                 {
-                    question: "Wat als ik zelf al een blog heb geschreven maar deze nog niet af is?",
-                    answer: "Geen probleem! Wij kunnen je conceptteksten oppakken, redigeren en voorzien van passende afbeeldingen voordat we ze publiceren.",
+                    question: "Werk je met vaste maandpakketten of losse uren?",
+                    answer: "Beide is mogelijk. Voor doorlopend technisch onderhoud en kleine wijzigingen werkt een flexibel maandelijks onderhoudspakket het prettigst; voor een eenmalige opschoonbeurt of grote update maken we gewoon een losse prijsafspraak.",
                 },
                 {
-                    question: "Wat als er plotseling iets kapot gaat aan de site?",
-                    answer: "Onze monitoring geeft ons direct een seintje. In de meeste gevallen hebben we het al opgelost voordat je het zelf in de gaten hebt.",
+                    question: "Wat gebeurt er als een update iets stukmaakt of mijn site offline gaat?",
+                    answer: "Doordat ik updates gecontroleerd uitvoer én recente back-ups klaar heb staan, los ik eventuele problemen snel op, vaak nog voordat een bezoeker er iets van merkt.",
                 },
             ]}
-            ctaLabel="Eens kijken of het klikt?"
+            relatedLinks={[
+                {
+                    title: "Website laten maken",
+                    description: "Toe aan een compleet nieuwe, snelle website in plaats van opknappen?",
+                    href: "/diensten/web-development/",
+                },
+                {
+                    title: "Logo, Huisstijl & Webdesign",
+                    description: "Geef je bestaande site een frisse, professionele uitstraling.",
+                    href: "/diensten/design/",
+                },
+                {
+                    title: "Webdesign Meppel",
+                    description: "Persoonlijke ondersteuning vanuit Meppel voor ondernemers in de regio.",
+                    href: "/webdesign-meppel/",
+                },
+            ]}
+            ctaLabel="Bespreek jouw website-onderhoud"
         />
     );
 }

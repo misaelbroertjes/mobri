@@ -67,7 +67,7 @@ export function CookieBanner() {
                             <div className="flex-1">
                                 <h3 className="font-bold text-lg mb-1">Privacy & Cookies</h3>
                                 <p className="text-sm text-secondary-foreground/70 leading-relaxed">
-                                    Mobri gebruikt cookies om te begrijpen hoe onze website wordt gebruikt en om je ervaring te verbeteren.
+                                    Mobri gebruikt cookies om te begrijpen hoe deze website wordt gebruikt en om je ervaring te verbeteren.
                                     Geen spam, beloofd.
                                 </p>
                             </div>

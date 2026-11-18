@@ -36,7 +36,7 @@ export function WhatsAppButton() {
     if (!mounted) return null;
 
     const phoneNumber = "31638125176";
-    const message = "Hoi Mobri, ik heb een vraag over jullie diensten. Kunnen jullie mij helpen?";
+    const message = "Hoi Misaël, ik heb een vraag over een website of design voor mijn bedrijf. Kun je mij helpen?";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     return (
@@ -69,7 +69,7 @@ export function WhatsAppButton() {
                             </div>
                         </div>
                         <p className="text-sm text-[#112A32]/80 mb-4">
-                            Samen sparren over jouw project? Stel hier direct je vraag aan het team van Mobri.
+                            Even sparren over jouw website, huisstijl of onderhoud? Stel hier direct je vraag aan Misaël.
                         </p>
                         <a
                             href={whatsappUrl}

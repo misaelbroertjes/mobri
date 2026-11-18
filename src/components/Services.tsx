@@ -1,34 +1,27 @@
 "use client";
 
-import { Monitor, PenTool, Wrench, MessageSquareHeart, ArrowRight } from "lucide-react";
+import { Monitor, PenTool, Wrench, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 
 const services = [
     {
         icon: <Monitor className="w-10 h-10" />,
-        title: "Web Development",
-        description: "Wij bouwen websites die niet alleen vandaag werken, maar ook klaar zijn voor morgen.",
+        title: "Website laten maken",
+        description: "Online een sterke eerste indruk maken zonder technisch gedoe. Ik bouw een snelle, vindbare website en laat je met heldere tracking zien wat bezoekers doen.",
         href: "/diensten/web-development/",
     },
     {
-        icon: <Wrench className="w-10 h-10" />,
-        title: "Onderhoud & Content Support",
-        description: "Continuïteit in techniek en relevantie. Wij zorgen ervoor dat jouw platform nooit stilstaat of veroudert.",
-        href: "/diensten/onderhoud-content-support/",
-    },
-    {
-        icon: <MessageSquareHeart className="w-10 h-10" />,
-        title: "Virtual Assistant",
-        description: "Strategische support voor de ambitieuze ondernemer. Eva fungeert als de backoffice die jouw workflow stroomlijnt.",
-        href: "/diensten/virtual-assistant/",
-    },
-    {
         icon: <PenTool className="w-10 h-10" />,
-        title: "Design & Branding",
-        description: "Jouw visie, vertaald in een krachtige visuele identiteit die staat als een huis en je doelgroep echt raakt.",
+        title: "Logo, Huisstijl & Webdesign",
+        description: "Herkenbaar en professioneel voor de dag komen op elke plek waar mensen je opzoeken, van je logo en huisstijl tot je website.",
         href: "/diensten/design/",
+    },
+    {
+        icon: <Wrench className="w-10 h-10" />,
+        title: "Website Onderhoud & Beheer",
+        description: "Geen stress over kapotte updates, beveiliging of teksten die achterlopen. Stuur een appje of mail en ik houd je website veilig en actueel.",
+        href: "/diensten/onderhoud-content-support/",
     },
 ];
 
@@ -134,7 +127,7 @@ export function Services() {
                             viewport={{ once: true }}
                             className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block"
                         >
-                            Onze Expertise
+                            Diensten
                         </motion.span>
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
@@ -143,7 +136,7 @@ export function Services() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-secondary leading-[1.1]"
                         >
-                            Alles wat je nodig hebt om <span className="text-primary italic">digitaal te groeien</span>.
+                            Alles voor een website die <span className="text-primary italic">voor je werkt</span>.
                         </motion.h2>
                     </div>
                     <motion.div
@@ -154,7 +147,7 @@ export function Services() {
                         className="hidden md:block"
                     >
                         <p className="text-muted-foreground text-lg max-w-xs leading-relaxed border-l border-secondary/10 pl-8">
-                            Persoonlijke aandacht, technisch vakmanschap en een oog voor detail.
+                            Zodat jij je kunt richten op je werk, terwijl je website er strak uitziet en gewoon goed draait.
                         </p>
                     </motion.div>
                 </div>
@@ -165,7 +158,7 @@ export function Services() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="hidden md:grid md:grid-cols-3 gap-8"
                 >
                     {services.map((service, index) => (
                         <ServiceCard key={index} service={service} />

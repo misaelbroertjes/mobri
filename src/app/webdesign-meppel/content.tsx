@@ -4,10 +4,33 @@ import { Services } from "@/components/Services";
 import { Header } from "@/components/Header";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, MapPin, Coffee, MessageSquare, Monitor, Layers } from "lucide-react";
+import { ArrowRight, MapPin, Coffee, MessageSquare, Monitor, Layers, ChevronDown } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
+
+const meppelFaqs = [
+    {
+        question: "Wat kost een website laten maken in Meppel?",
+        answer: "De prijs hangt af van wat jouw bedrijf nodig heeft, van een compacte website voor een lokale ZZP'er tot een uitgebreidere bedrijfswebsite met maatwerk of huisstijl. Na een vrijblijvende kennismaking (bij jou aan tafel of online) krijg je altijd een duidelijke, vaste prijsopgave vooraf.",
+    },
+    {
+        question: "Kom je ook op locatie langs buiten Meppel?",
+        answer: "Ja, zeker! Vanuit Meppel kom ik graag langs bij ondernemers in o.a. Zwolle, Steenwijk, Hoogeveen, Staphorst, Ruinen en de rest van Drenthe en Overijssel. Even kennismaken aan je eigen tafel werkt vaak het prettigst.",
+    },
+    {
+        question: "Bouw je websites in WordPress of op maat?",
+        answer: "Allebei. Wil je zelf eenvoudig teksten, foto's of blogberichten kunnen bijwerken? Dan is een overzichtelijke WordPress website een fijne keuze. Wil je maximale snelheid en maatwerk zonder zware plugins? Dan bouw ik je site in Next.js.",
+    },
+    {
+        question: "Kun je ook mijn logo en huisstijl meenemen bij het webdesign?",
+        answer: "Ja. Omdat ik zowel het grafisch ontwerp als de technische bouw verzorg, kan ik je logo, kleuren en lettertypes direct ontwerpen of opfrissen zodat je hele uitstraling één professioneel geheel vormt.",
+    },
+    {
+        question: "Hoe werkt het onderhoud nadat mijn website live staat?",
+        answer: "Na de livegang laat ik je niet los. Je kunt het technisch onderhoud, updates, back-ups en eventuele tekst- of foto-aanpassingen eenvoudig uitbesteden, zodat je website altijd veilig, snel en actueel blijft.",
+    },
+];
 
 function MeppelHero() {
     const ref = useRef(null);
@@ -34,7 +57,6 @@ function MeppelHero() {
     const y1Base = useTransform(scrollYProgress, [0, 1], [0, 200]);
     const y2Base = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
-    // Parallax conditional logic
     const y1 = useSpring(y1Base, springConfig);
     const y2 = useSpring(y2Base, springConfig);
     const parallaxY1 = (mounted && !isMobile) ? y1 : 0;
@@ -63,7 +85,7 @@ function MeppelHero() {
                         className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-white rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 shadow-lg shadow-secondary/10 w-fit"
                     >
                         <MapPin className="w-3 h-3 text-primary" />
-                        LOKAAL IN MEPPEL
+                        WEBDESIGN IN MEPPEL &amp; OMGEVING
                     </motion.span>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -71,8 +93,7 @@ function MeppelHero() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-foreground"
                     >
-                        Webdesign & Digitale <br />
-                        <span className="text-primary italic">Ondersteuning</span>.
+                        Website laten maken in <span className="text-primary italic">Meppel</span>.
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -80,7 +101,7 @@ function MeppelHero() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
                     >
-                        Jouw lokale partner voor professionele websites en Virtual Assistant diensten. Gewoon, bij jou om de hoek in Meppel en omgeving.
+                        Wil je als ondernemer in Meppel of omgeving een website waar je trots op bent, zonder zelf met techniek te hoeven prutsen? Ik regel het webdesign, de bouw én het onderhoud, gewoon met korte lijnen bij jou om de hoek.
                     </motion.p>
 
                     <motion.div
@@ -106,7 +127,6 @@ function MeppelHero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="hidden md:block relative"
                 >
-                    {/* Decorative Blob */}
                     <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
 
                     <div className="relative z-10 bg-white p-8 rounded-3xl shadow-2xl border border-secondary/5 rotate-2 hover:rotate-0 transition-transform duration-500 max-w-lg ml-auto">
@@ -116,7 +136,7 @@ function MeppelHero() {
                             </div>
                             <div>
                                 <h3 className="font-bold text-xl text-secondary">Kopje koffie doen?</h3>
-                                <p className="text-secondary/60 font-medium">Wij komen graag bij jou langs.</p>
+                                <p className="text-secondary/60 font-medium">Ik kom graag bij jou langs in Meppel.</p>
                             </div>
                         </div>
 
@@ -127,7 +147,7 @@ function MeppelHero() {
                                 </div>
                                 <div>
                                     <p className="font-bold text-secondary text-sm">Geen ticketsystemen</p>
-                                    <p className="text-sm text-secondary/60">Direct contact via WhatsApp.</p>
+                                    <p className="text-sm text-secondary/60">Direct contact met Misaël via WhatsApp of telefoon.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -136,7 +156,7 @@ function MeppelHero() {
                                 </div>
                                 <div>
                                     <p className="font-bold text-secondary text-sm">Aan je eigen tafel</p>
-                                    <p className="text-sm text-secondary/60">Wij sparren het liefst face-to-face.</p>
+                                    <p className="text-sm text-secondary/60">Persoonlijk sparren op locatie in de regio.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -144,8 +164,8 @@ function MeppelHero() {
                                     <div className="w-2 h-2 rounded-full bg-purple-500" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-secondary text-sm">Tech & Creatie</p>
-                                    <p className="text-sm text-secondary/60">Alles onder één dak geregeld.</p>
+                                    <p className="font-bold text-secondary text-sm">Design, Bouw &amp; Onderhoud</p>
+                                    <p className="text-sm text-secondary/60">Alles direct geregeld bij één specialist.</p>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +173,7 @@ function MeppelHero() {
                         {/* Call Action Footer */}
                         <div className="mt-8 pt-6 border-t border-secondary/5 flex items-center justify-between">
                             <div className="text-xs font-bold uppercase tracking-wider text-secondary/40">
-                                Direct contact
+                                Direct bellen
                             </div>
                             <a href="tel:0638125176" className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group">
                                 06-38125176
@@ -171,22 +191,22 @@ function UspSection() {
     const usps = [
         {
             title: "Korte Lijnen",
-            desc: "Geen gedoe met ticketsystemen of wachtrijen. Je hebt direct contact via WhatsApp of telefoon met Misaël of Eva.",
+            desc: "Geen ticketsystemen of wachtrijen als je iets wilt aanpassen. Je appt of belt gewoon rechtstreeks met mij.",
             icon: <MessageSquare className="w-6 h-6" />
         },
         {
             title: "Bij jou op de zaak",
-            desc: "Wij werken vanuit huis, maar komen graag naar jou toe. Zo zien we direct wie je bent en wat je doet.",
+            desc: "Ik werk vanuit Meppel en kom graag bij jou aan tafel zitten. Zo snap ik direct wat jouw bedrijf uniek maakt.",
             icon: <MapPin className="w-6 h-6" />
         },
         {
-            title: "Tech & Creatie",
-            desc: "Een unieke combinatie van een technische web-expert (Misaël) en een creatieve VA (Eva) onder één dak.",
+            title: "Alles in één hand",
+            desc: "Geen losse partijen voor huisstijl, webdesign en techniek. Alles sluit strak op elkaar aan en je website laadt snel.",
             icon: <Monitor className="w-6 h-6" />
         },
         {
-            title: "Totaaloplossing",
-            desc: "Wij bouwen niet alleen je website, maar helpen je ook met content, onderhoud en administratieve randzaken.",
+            title: "Rust na de livegang",
+            desc: "Ook nadat je site online staat ben je niet op jezelf aangewezen. Ik help je blijvend met updates, beveiliging en nieuwe content.",
             icon: <Layers className="w-6 h-6" />
         }
     ];
@@ -195,8 +215,8 @@ function UspSection() {
         <section className="py-20 bg-secondary text-secondary-foreground relative">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-16">
-                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Waarom Mobri?</span>
-                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">De voordelen van een <span className="text-primary">lokale partner</span>.</h2>
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Waarom Mobri in Meppel?</span>
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">De voordelen van een <span className="text-primary">lokale webdesigner</span>.</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -215,17 +235,86 @@ function UspSection() {
     );
 }
 
+function MeppelFaqSection() {
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+    const faqJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": meppelFaqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer,
+            },
+        })),
+    };
+
+    return (
+        <section className="py-24 bg-secondary/5">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            />
+            <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+                <div className="text-center mb-16">
+                    <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Veelgestelde vragen</span>
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-secondary mb-4">
+                        Website laten maken in <span className="text-primary italic">Meppel</span>?
+                    </h2>
+                </div>
+                <div className="space-y-4">
+                    {meppelFaqs.map((faq, index) => (
+                        <div
+                            key={index}
+                            className="bg-white rounded-2xl border border-secondary/5 overflow-hidden transition-all shadow-sm hover:shadow-md"
+                        >
+                            <button
+                                onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                aria-expanded={openFaq === index}
+                                className="w-full px-8 py-6 text-left flex items-center justify-between gap-4 font-bold text-secondary text-lg"
+                            >
+                                {faq.question}
+                                <div className={`transition-transform duration-300 ${openFaq === index ? "rotate-180" : ""}`}>
+                                    <ChevronDown className="w-5 h-5 text-primary" />
+                                </div>
+                            </button>
+                            <AnimatePresence>
+                                {openFaq === index && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    >
+                                        <div className="px-8 pb-8 text-muted-foreground leading-relaxed">
+                                            <div className="pt-2 border-t border-secondary/5">
+                                                {faq.answer}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
 function RegionLinks() {
     return (
         <section className="py-12 bg-background border-t border-secondary/5">
             <div className="container mx-auto px-4 md:px-6 text-center">
-                <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-4">Wij zijn actief in de regio</h3>
+                <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-4">Actief in Meppel en omgeving</h3>
                 <p className="text-muted-foreground text-sm max-w-2xl mx-auto leading-relaxed">
-                    Mobri is jouw webdesign partner in <span className="text-secondary font-medium">Meppel</span>, <span className="text-secondary font-medium">Zwolle</span>, <span className="text-secondary font-medium">Steenwijk</span>, <span className="text-secondary font-medium">Hoogeveen</span> en de wijde omgeving van Drenthe en Overijssel. Wij komen graag op locatie voor een persoonlijke kennismaking.
+                    Mobri bouwt en onderhoudt websites voor ondernemers in <span className="text-secondary font-medium">Meppel</span>, <span className="text-secondary font-medium">Zwolle</span>, <span className="text-secondary font-medium">Steenwijk</span>, <span className="text-secondary font-medium">Hoogeveen</span>, <span className="text-secondary font-medium">Staphorst</span> en de rest van Drenthe en Overijssel. Neem gerust contact op voor een vrijblijvende kennismaking bij jou op locatie.
                 </p>
             </div>
         </section>
-    )
+    );
 }
 
 export function MeppelContent() {
@@ -235,6 +324,7 @@ export function MeppelContent() {
             <MeppelHero />
             <UspSection />
             <Services />
+            <MeppelFaqSection />
             <ContactForm />
             <RegionLinks />
             <Footer />

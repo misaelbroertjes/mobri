@@ -32,7 +32,7 @@ export default function NotFound() {
                     </h2>
 
                     <p className="text-lg text-muted-foreground mb-10 max-w-lg mx-auto">
-                        De pagina die je zoekt bestaat niet meer, is verplaatst, of heeft nooit bestaan. Geen zorgen, we helpen je weer op weg.
+                        De pagina die je zoekt bestaat niet meer, is verplaatst, of heeft nooit bestaan. Geen zorgen, ik help je graag weer op weg.
                     </p>
 
                     <motion.div
@@ -84,7 +84,7 @@ export default function NotFound() {
                             href="/#contact"
                             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5"
                         >
-                            Of neem contact met ons op &rarr;
+                            Of neem contact met mij op &rarr;
                         </Link>
                     </div>
                 </div>
